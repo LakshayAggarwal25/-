@@ -1,5 +1,5 @@
 .toolBar{
-    height: 80px;
+    height: 120px;
     width: 80vw;
     border: 1px solid rgb(157, 157, 157);
     border-radius: 5px;
@@ -10,7 +10,15 @@
 
 }
 
-div img{
+.tools{
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+div img[changeTool="here"]{
     height: 60px;
 }
 
@@ -23,14 +31,15 @@ div img{
     align-items: center;
 }
 .color{
-    
     height: 40px;
     width : 40px;
     border-radius: 50%;
     margin-left: 4px;
     margin-right: 4px;
-
-
+}
+div img[changeSize="here"]{
+    width: 15px;
+    height: 10px;
 }
 .red{
     background-color: red;
@@ -42,34 +51,50 @@ div img{
 .black{
     background-color: black;
 }
+.arrowContainer{
+    
+    height: 50px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.sizeArrow {
+    height: 15px;
+    width: 15px;
+}
 
-.size-box{
+.sizeContainers{
+    display: flex;
     width: 150px;
     height: 30px;
-    border: 1px solid lightslategrey;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    border: 1px solid lightslategrey;
+    border-radius: 10px;
     display: none;
+    position: static;
 
 }
 .size{
     background-color: black;
-    border-radius:50%;
+    border-radius: 50%;
+    margin-right: 10px;
 }
-.size1{
+.size1 {
     width: 10px;
     height: 10px;
 }
-.size2{
+.size2 {
     width: 14px;
     height: 14px;
 }
-.size3{
+.size3 {
     width: 18px;
     height: 18px;
 }
-.size4{
+.size4 {
     width: 22px;
     height: 22px;
 }
+
