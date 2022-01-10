@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">   
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -18,90 +19,103 @@
         <div class="h1-container">
             <h1>White Board</h1>
         </div>
-        <div class="toolBar">
-            <div class="tool1 tools">
-                <div class="pencil">
-                    <img src="./Assets/pen.svg" alt="" title="Pen" changeTool="here">
-                </div>
-                <div class="arrowContainer">
-                    <div class="sizeArrow">
-                        <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
-                    </div>
-                    <div class="sizeContainers">
-                        <div class="size1 size"></div>
-                        <div class="size2 size"></div>
-                        <div class="size3 size"></div>
-                        <div class="size4 size"></div>
-                    </div>
-                </div>
+    </div>
+    <div class="content">
+        <div class="notes-container">
+            <div class="heading-notes">Sticky Notes</div>
+            <div class="buttons">
+                <button class="add">New</button>
+                <button class="clean-notes">Delete All</button>
             </div>
-            <div class="tool2 tools">
-                <div class="line">
-                    <img src="./Assets/line.png" alt="" title="Line" changeTool="here">
-                </div>
-                <div class="arrowContainer">
-                    <div class="sizeArrow">
-                        <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
-                    </div>
-                    <div class="sizeContainers">
-                        <div class="size1 size"></div>
-                        <div class="size2 size"></div>
-                        <div class="size3 size"></div>
-                        <div class="size4 size"></div>
-                    </div>
-                </div>
+            <div class="notes">
+                <ul id="ulNotes"></ul>
             </div>
-            <div class="tool3 tools">
-                <div class="rect">
-                    <img src="./Assets/rectangle.svg" alt="" title="Rectangle" changeTool="here">
-                </div>    
-                <div class="arrowContainer">
-                    <div class="sizeArrow">
-                        <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
+        </div>
+        <div class="board-content">
+            <div class="toolBar">
+                <div class="tool1 tools">
+                    <div class="pencil">
+                        <img src="./Assets/pen.svg" alt="" title="Pen" changeTool="here">
                     </div>
-                    <div class="sizeContainers">
-                        <div class="size1 size"></div>
-                        <div class="size2 size"></div>
-                        <div class="size3 size"></div>
-                        <div class="size4 size"></div>
+                    <div class="arrowContainer">
+                        <div class="sizeArrow">
+                            <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
+                        </div>
+                        <div class="sizeContainers">
+                            <div class="size1 size"></div>
+                            <div class="size2 size"></div>
+                            <div class="size3 size"></div>
+                            <div class="size4 size"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="tool4 tools">
-                <div class="eraser">
-                    <img src="./Assets/eraser.svg" alt="" title="Eraser" changeTool="here">
-                </div>
-                <div class="arrowContainer">
-                    <div class="sizeArrow">
-                        <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
+                <div class="tool2 tools">
+                    <div class="line">
+                        <img src="./Assets/line.png" alt="" title="Line" changeTool="here">
                     </div>
-                    <div class="sizeContainers">
-                        <div class="size1 size"></div>
-                        <div class="size2 size"></div>
-                        <div class="size3 size"></div>
-                        <div class="size4 size"></div>
+                    <div class="arrowContainer">
+                        <div class="sizeArrow">
+                            <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
+                        </div>
+                        <div class="sizeContainers">
+                            <div class="size1 size"></div>
+                            <div class="size2 size"></div>
+                            <div class="size3 size"></div>
+                            <div class="size4 size"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        
-            <div class="clearBoard tools">
-                <img src="./Assets/clearBoard.png" alt="" title="Clear board" changeTool="here">
-            </div>
-
-            <div class="color-container">
-                <input type="color" class="choose-color" title="Select color" value="black">
-            </div>
+                <div class="tool3 tools">
+                    <div class="rect">
+                        <img src="./Assets/rectangle.svg" alt="" title="Rectangle" changeTool="here">
+                    </div>    
+                    <div class="arrowContainer">
+                        <div class="sizeArrow">
+                            <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
+                        </div>
+                        <div class="sizeContainers">
+                            <div class="size1 size"></div>
+                            <div class="size2 size"></div>
+                            <div class="size3 size"></div>
+                            <div class="size4 size"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tool4 tools">
+                    <div class="eraser">
+                        <img src="./Assets/eraser.svg" alt="" title="Eraser" changeTool="here">
+                    </div>
+                    <div class="arrowContainer">
+                        <div class="sizeArrow">
+                            <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
+                        </div>
+                        <div class="sizeContainers">
+                            <div class="size1 size"></div>
+                            <div class="size2 size"></div>
+                            <div class="size3 size"></div>
+                            <div class="size4 size"></div>
+                        </div>
+                    </div>
+                </div>
             
-            <div class="downloadPdf">
-                <img src="./Assets/download.png" alt="" title="Clear board" changeTool="here">
+                <div class="clearBoard tools">
+                    <img src="./Assets/clearBoard.png" alt="" title="Clear board" changeTool="here">
+                </div>
+    
+                <div class="color-container">
+                    <input type="color" class="choose-color" title="Select color" value="black">
+                </div>
+                
+                <div class="downloadPdf">
+                    <img src="./Assets/download.png" alt="" title="Clear board" changeTool="here">
+                </div>
+    
             </div>
-
+            <canvas></canvas>
         </div>
     </div>
-    <canvas></canvas>
 
     <body>
-        <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
 
         <script>
             // variable declaration
@@ -117,6 +131,9 @@ let color = document.querySelector(".choose-color");
 let arrow = document.querySelectorAll(".sizeArrow");
 let sizeBox = document.querySelectorAll(".sizeContainers");
 let downloadPdf = document.querySelector(".downloadPdf");
+let notes = document.querySelector("#ulNotes");
+let addNotes = document.querySelector(".add");
+let deleteNotes = document.querySelector(".clean-notes");
 
 
 let cTool = "pencil";
@@ -128,12 +145,12 @@ let lineSize = 6;
 let penColor = color.value;
 
 
-board.height = window.innerHeight;
-board.width = window.innerWidth;
+board.height = 710;
+board.width = 1440;
 
 // To find the offset in board 
-boardLeft = board.getBoundingClientRect().left;
-boardTop = board.getBoundingClientRect().top;
+boardLeft = board.getBoundingClientRect().left+6;
+boardTop = board.getBoundingClientRect().top+6;
 
 let initialX, initialY, finalX, finalY;
 let drawingMode = false;
@@ -207,13 +224,20 @@ eraser.addEventListener("click", function () {
     tool.lineWidth = eraserSize;
 });
 clearBoard.addEventListener("click", function () {
-    tool.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    let res = confirm("Do you really want to clear the board?");
+    if(res==true){
+        tool.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    }else{
+        return;
+    }
 });
 
 // Color change
 color.addEventListener("change",function(){
     penColor = color.value;
-    tool.strokeStyle = penColor;
+    if(cTool!="eraser"){
+        tool.strokeStyle = penColor;
+    }
 
 });
 
@@ -358,5 +382,49 @@ downloadPdf.addEventListener("click",function(){
     pdf.addImage(board, 'PNG', 0, 0,pdfW,pdfH);
     pdf.save("download.pdf");
 })
+
+
+addNotes.addEventListener("click", function () {
+        let alreadyNotes = document.querySelectorAll(".sticky");
+        if(alreadyNotes){
+            if(alreadyNotes.length>=3){
+                alert("Notes Limit Reached !");
+                return;
+            }
+        }
+        let sticky = document.createElement("div");
+        sticky.setAttribute("class", "sticky");
+        sticky.innerHTML = `<div class="navbar">
+        <div class="close" title="Delete this note"></div>
+    </div>
+    <textarea name="" class="textarea"></textarea>`;
+        notes.appendChild(sticky);
+        let close = sticky.querySelector(".close");
+        let textArea = sticky.querySelector("textarea");
+        close.addEventListener("click", function () {
+            let res = confirm("Do you want to delete this note ?");
+            if(res==true){
+                sticky.remove();
+            }else{
+                return;
+            }
+        })
+    })
+    deleteNotes.addEventListener("click", function () {
+        
+        let alreadyNotes = document.querySelectorAll(".sticky");
+        if(alreadyNotes){
+            if(alreadyNotes.length==0){
+                alert("No Notes Present");
+                return;
+            }
+        }
+        let res = confirm("Do you want to delete all notes");
+            if(res==true){
+                notes.innerHTML = "";
+            }else{
+                return;
+            }
+    })
         </script>
 </html>
