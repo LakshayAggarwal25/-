@@ -1,13 +1,19 @@
+.header{
+    background-color: rgb(204, 203, 203);
+    width: 95vw;
+    margin-top: 8px;
+    margin: 0 auto;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
 .toolBar{
     height: 120px;
     width: 95vw;
-    border: 1px solid rgb(157, 157, 157);
-    border-radius: 8px;
     margin: 0 auto; 
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(204, 203, 203);
 }
 .h1-container{
     display: flex;
@@ -15,14 +21,16 @@
     align-items: center;
     width: 95vw;
     margin: 0 auto;
-    border-bottom: lightcoral 4px solid;
-    font-size: 16pt;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color:rgb(95, 15, 15);
-    background-image: linear-gradient(to right, #c0c0aa, #1cefff);
-    border-radius: 6px;
+    color: whitesmoke;
+    border-bottom: 3px rosybrown solid;
+    background-image: linear-gradient(to right,  #0f2027, #203a43, #2c5364);
+}
+h1{
+    font-family: 'Merienda One', cursive;
+    font-size: 46px;
 }
 .tools{
+    padding-top: 4px;
     width: 150px;
     display: flex;
     flex-direction: column;
@@ -35,34 +43,16 @@ div img[changeTool="here"]{
 }
 
 .color-container{
-    border: 1px solid rgb(175, 175, 175);
-    border-radius: 15px;
     display: flex;
     height: 60px;
     justify-content: space-evenly;
     align-items: center;
-    background-color: whitesmoke;
+
 }
-.color{
-    height: 40px;
-    width : 40px;
-    border-radius: 50%;
-    margin-left: 4px;
-    margin-right: 4px;
-}
+
 div img[changeSize="here"]{
     width: 15px;
     height: 10px;
-}
-.red{
-    background-color: red;
-}
-
-.blue{
-    background-color: blue;
-}
-.black{
-    background-color: black;
 }
 .arrowContainer{
     

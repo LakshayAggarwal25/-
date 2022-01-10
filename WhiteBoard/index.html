@@ -6,337 +6,357 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="styles.css">
+
 </head>
-<link rel="stylesheet" href="styles.css">
 
 <body>
-    <div class="h1-container">
-        <h1>White Board</h1>
-    </div>
-    <div class="toolBar">
-        <div class="tool1 tools">
-            <div class="pencil">
-                <img src="./Assets/pen.svg" alt="" title="Pen" changeTool="here">
-            </div>
-            <div class="arrowContainer">
-                <div class="sizeArrow">
-                    <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
-                </div>
-                <div class="sizeContainers">
-                    <div class="size1 size"></div>
-                    <div class="size2 size"></div>
-                    <div class="size3 size"></div>
-                    <div class="size4 size"></div>
-                </div>
-            </div>
+    <div class= "header">
+        <div class="h1-container">
+            <h1>White Board</h1>
         </div>
-        <div class="tool2 tools">
-            <div class="line">
-                <img src="./Assets/line.png" alt="" title="Line" changeTool="here">
-            </div>
-            <div class="arrowContainer">
-                <div class="sizeArrow">
-                    <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
+        <div class="toolBar">
+            <div class="tool1 tools">
+                <div class="pencil">
+                    <img src="./Assets/pen.svg" alt="" title="Pen" changeTool="here">
                 </div>
-                <div class="sizeContainers">
-                    <div class="size1 size"></div>
-                    <div class="size2 size"></div>
-                    <div class="size3 size"></div>
-                    <div class="size4 size"></div>
-                </div>
-            </div>
-        </div>
-        <div class="tool3 tools">
-            <div class="rect">
-                <img src="./Assets/rectangle.svg" alt="" title="Rectangle" changeTool="here">
-            </div>    
-            <div class="arrowContainer">
-                <div class="sizeArrow">
-                    <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
-                </div>
-                <div class="sizeContainers">
-                    <div class="size1 size"></div>
-                    <div class="size2 size"></div>
-                    <div class="size3 size"></div>
-                    <div class="size4 size"></div>
+                <div class="arrowContainer">
+                    <div class="sizeArrow">
+                        <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
+                    </div>
+                    <div class="sizeContainers">
+                        <div class="size1 size"></div>
+                        <div class="size2 size"></div>
+                        <div class="size3 size"></div>
+                        <div class="size4 size"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="tool1 tools">
-            <div class="eraser">
-                <img src="./Assets/eraser.svg" alt="" title="Eraser" changeTool="here">
-            </div>
-            <div class="arrowContainer">
-                <div class="sizeArrow">
-                    <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
+            <div class="tool2 tools">
+                <div class="line">
+                    <img src="./Assets/line.png" alt="" title="Line" changeTool="here">
                 </div>
-                <div class="sizeContainers">
-                    <div class="size1 size"></div>
-                    <div class="size2 size"></div>
-                    <div class="size3 size"></div>
-                    <div class="size4 size"></div>
+                <div class="arrowContainer">
+                    <div class="sizeArrow">
+                        <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
+                    </div>
+                    <div class="sizeContainers">
+                        <div class="size1 size"></div>
+                        <div class="size2 size"></div>
+                        <div class="size3 size"></div>
+                        <div class="size4 size"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-       
-        <div class="clearBoard tools">
-            <img src="./Assets/clearBoard.png" alt="" title="Clear board" changeTool="here">
-        </div>
+            <div class="tool3 tools">
+                <div class="rect">
+                    <img src="./Assets/rectangle.svg" alt="" title="Rectangle" changeTool="here">
+                </div>    
+                <div class="arrowContainer">
+                    <div class="sizeArrow">
+                        <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
+                    </div>
+                    <div class="sizeContainers">
+                        <div class="size1 size"></div>
+                        <div class="size2 size"></div>
+                        <div class="size3 size"></div>
+                        <div class="size4 size"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tool4 tools">
+                <div class="eraser">
+                    <img src="./Assets/eraser.svg" alt="" title="Eraser" changeTool="here">
+                </div>
+                <div class="arrowContainer">
+                    <div class="sizeArrow">
+                        <img src="./Assets/down-arrow-svgrepo-com.svg" alt="" changeSize ="here">
+                    </div>
+                    <div class="sizeContainers">
+                        <div class="size1 size"></div>
+                        <div class="size2 size"></div>
+                        <div class="size3 size"></div>
+                        <div class="size4 size"></div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="clearBoard tools">
+                <img src="./Assets/clearBoard.png" alt="" title="Clear board" changeTool="here">
+            </div>
 
-        <div class="color-container">
-            <div class="color red" title="red color"></div>
-            <div class="color blue"title="blue color"></div>
-            <div class="color black"title="black color"></div>
-        </div>
+            <div class="color-container">
+                <input type="color" class="choose-color" title="Select color" value="black">
+            </div>
+            
+            <div class="downloadPdf">
+                <img src="./Assets/download.png" alt="" title="Clear board" changeTool="here">
+            </div>
 
+        </div>
     </div>
     <canvas></canvas>
 
     <body>
+        <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
 
         <script>
             // variable declaration
-            let board = document.querySelector("canvas");
-            let body = document.querySelector("body");
-            let tool = board.getContext("2d");
-            let pencil = document.querySelector(".pencil");
-            let line = document.querySelector(".line");
-            let rect = document.querySelector(".rect");
-            let eraser = document.querySelector(".eraser");
-            let clearBoard = document.querySelector(".clearBoard");
-            let redC = document.querySelector(".red");
-            let blueC = document.querySelector(".blue");
-            let blackC = document.querySelector(".black");
+let board = document.querySelector("canvas");
+let body = document.querySelector("body");
+let tool = board.getContext("2d");
+let pencil = document.querySelector(".pencil");
+let line = document.querySelector(".line");
+let rect = document.querySelector(".rect");
+let eraser = document.querySelector(".eraser");
+let clearBoard = document.querySelector(".clearBoard");
+let color = document.querySelector(".choose-color");
+let arrow = document.querySelectorAll(".sizeArrow");
+let sizeBox = document.querySelectorAll(".sizeContainers");
+let downloadPdf = document.querySelector(".downloadPdf");
 
 
-            let cTool = "pencil";
+let cTool = "pencil";
 
-            let pencilSize = 6;
-            let eraserSize = 6;
-            let rectSize = 6;
-            let lineSize = 6;
-            let penColor = "black";
-
-            board.height = window.innerHeight;
-            board.width = window.innerWidth;
-
-            // To find the offset in board 
-            boardLeft = board.getBoundingClientRect().left;
-            boardTop = board.getBoundingClientRect().top;
-
-            let initialX, initialY, finalX, finalY;
-            let drawingMode = false;
-
-           
-
-            // Drawing Feature
-            body.addEventListener("mousedown", function (e) {
-                
-                initialX = e.clientX - boardLeft;
-                initialY = e.clientY - boardTop;
-                if (cTool == "pencil" || cTool == "eraser") {
-                    drawingMode = true;
-                    tool.beginPath();
-                    tool.moveTo(initialX, initialY);
-                }
-                
-            });
-            body.addEventListener("mouseup", function (e) {
-                if (cTool == "pencil" || cTool == "eraser") {
-                    drawingMode = false;
-
-                } else if (cTool == "rect" || cTool == "line") {
-                    // rect, line
-                    finalX = e.clientX - boardLeft;;
-                    finalY = e.clientY - boardTop;
-                    let width = finalX - initialX;
-                    let height = finalY - initialY;
-                    if (cTool == "rect") {
-                        tool.strokeRect(initialX, initialY, width, height);
-                    } else if (cTool == "line") {
-                        tool.beginPath();
-                        tool.moveTo(initialX, initialY);
-                        tool.lineTo(finalX, finalY);
-                        tool.stroke();
-                    }
-                }
-            });
-            body.addEventListener("mousemove", function (e) {
-                
-                if (drawingMode == false)
-                    return;
-                finalX = e.clientX - boardLeft;
-                finalY = e.clientY - boardTop;
-                tool.lineTo(finalX, finalY);
-                tool.stroke();
-                initialX = finalX;
-                initialY = finalY;
-            });
+let pencilSize = 6;
+let eraserSize = 6;
+let rectSize = 6;
+let lineSize = 6;
+let penColor = color.value;
 
 
-            // Toggle size box for the selected tool and set the current tool
-            pencil.addEventListener("click", function () {
-                    cTool = "pencil";
-                    tool.strokeStyle = penColor;
-                    tool.lineWidth = pencilSize; 
-            });
-            line.addEventListener("click", function () {
-                    cTool = "line";
-                    tool.strokeStyle = penColor;
-                    tool.lineWidth = lineSize;
-            });
-            rect.addEventListener("click", function () {
-                    cTool = "rect";
-                    tool.strokeStyle = penColor;
-                    tool.lineWidth = rectSize;
-            });
-            eraser.addEventListener("click", function () {
-                    cTool = "eraser";
-                    tool.strokeStyle = "white";
-                    tool.lineWidth = eraserSize;
-            });
-            clearBoard.addEventListener("click",function(){
-                tool.clearRect(0,0,window.innerWidth,window.innerHeight);
-            });
+board.height = window.innerHeight;
+board.width = window.innerWidth;
 
-            // Color change
-            redC.addEventListener("click",function(){
-                penColor = "red";
-                tool.strokeStyle = "red";
-            })
-            blueC.addEventListener("click",function(){
-                penColor = "blue";
-                tool.strokeStyle = "blue";
-            })
-            blackC.addEventListener("click",function(){
-                penColor = "black"
-                tool.strokeStyle = "black";
-            })
+// To find the offset in board 
+boardLeft = board.getBoundingClientRect().left;
+boardTop = board.getBoundingClientRect().top;
 
-            // Size Change
-            let arrow = document.querySelectorAll(".sizeArrow");
-            let sizeBox = document.querySelectorAll(".sizeContainers");
-            let isPenClosed = true;
-            arrow[0].addEventListener("click", function () {
-                
-                if (isPenClosed == true) {
-                    sizeBox[0].style.display = "flex";
-                } else {
-                    sizeBox[0].style.display = "none";
-                }
-                isPenClosed = !isPenClosed;
-            })
-            sizeBox[0].addEventListener("click", function (e) {
-                cTool = "pencil";
-                if (e.target.classList[0] == "size1") {
-                    pencilSize = 6;
-                }
-                if (e.target.classList[0] == "size2") {
-                    pencilSize = 9;
-                }
-                if (e.target.classList[0] == "size3") {
-                    pencilSize = 12;
-                }
-                if (e.target.classList[0] == "size4") {
-                    pencilSize = 16;
-                }
-                tool.strokeStyle = penColor;
-                tool.lineWidth = pencilSize;
-                isPenClosed = !isPenClosed;
-                sizeBox[0].style.display = "none";
-            })
+let initialX, initialY, finalX, finalY;
+let drawingMode = false;
 
-            // Line
-            let isLineClosed = true;
-            arrow[1].addEventListener("click", function () {
-                if (isLineClosed == true) {
-                    sizeBox[1].style.display = "flex";
-                } else {
-                    sizeBox[1].style.display = "none";
-                }
-                isLineClosed = !isLineClosed;
-            })
-            sizeBox[1].addEventListener("click", function (e) {
-                cTool = "line";
-                
-                if (e.target.classList[0] == "size1") {
-                    lineSize = 6;
-                }
-                if (e.target.classList[0] == "size2") {
-                    lineSize = 9;
-                }
-                if (e.target.classList[0] == "size3") {
-                    lineSize = 12;
-                }
-                if (e.target.classList[0] == "size4") {
-                    lineSize = 16;
-                }
-                tool.strokeStyle = penColor;
-                tool.lineWidth = lineSize;
-                isLineClosed = !isLineClosed;
-                sizeBox[1].style.display = "none";
-            })
-            
-            // Rect
-            let isRectClosed = true;
-            arrow[2].addEventListener("click", function () {
-                if (isRectClosed == true) {
-                    sizeBox[2].style.display = "flex";
-                } else {
-                    sizeBox[2].style.display = "none";
-                }
-                isRectClosed = !isRectClosed;
-            })
-            sizeBox[2].addEventListener("click", function (e) {
-                cTool = "rect";
 
-                if (e.target.classList[0] == "size1") {
-                    rectSize = 6;
-                }
-                if (e.target.classList[0] == "size2") {
-                    rectSize = 9;
-                }
-                if (e.target.classList[0] == "size3") {
-                    rectSize = 12;
-                }
-                if (e.target.classList[0] == "size4") {
-                    rectSize = 16;
-                }
-                tool.strokeStyle = penColor;
-                tool.lineWidth = rectSize;
-                isRectClosed = !isRectClosed;
-                sizeBox[2].style.display = "none";
-            })
 
-            // Eraser
-            let isEraser = true;
-            arrow[3].addEventListener("click", function () {
-                if (isEraser == true) {
-                    sizeBox[3].style.display = "flex";
-                } else {
-                    sizeBox[3].style.display = "none";
-                }
-                isEraser = !isEraser;
-            })
-            sizeBox[3].addEventListener("click", function (e) {
-                cTool = "eraser";
-                if (e.target.classList[0] == "size1") {
-                    eraserSize = 6;
-                }
-                if (e.target.classList[0] == "size2") {
-                    eraserSize = 9;
-                }
-                if (e.target.classList[0] == "size3") {
-                    eraserSize = 12;
-                }
-                if (e.target.classList[0] == "size4") {
-                    eraserSize = 16;
-                }
-                tool.strokeStyle ="white";
-                tool.lineWidth = eraserSize;
-                isEraser = !isEraser;
-                sizeBox[3].style.display = "none";
-            })
+// Drawing Feature
+body.addEventListener("mousedown", function (e) {
+
+    initialX = e.clientX - boardLeft;
+    initialY = e.clientY - boardTop;
+    if (cTool == "pencil" || cTool == "eraser") {
+        drawingMode = true;
+        tool.beginPath();
+        tool.moveTo(initialX, initialY);
+    }
+
+});
+body.addEventListener("mouseup", function (e) {
+    if (cTool == "pencil" || cTool == "eraser") {
+        drawingMode = false;
+
+    } else if (cTool == "rect" || cTool == "line") {
+        // rect, line
+        finalX = e.clientX - boardLeft;;
+        finalY = e.clientY - boardTop;
+        let width = finalX - initialX;
+        let height = finalY - initialY;
+        if (cTool == "rect") {
+            tool.strokeRect(initialX, initialY, width, height);
+        } else if (cTool == "line") {
+            tool.beginPath();
+            tool.moveTo(initialX, initialY);
+            tool.lineTo(finalX, finalY);
+            tool.stroke();
+        }
+    }
+});
+body.addEventListener("mousemove", function (e) {
+
+    if (drawingMode == false)
+        return;
+    finalX = e.clientX - boardLeft;
+    finalY = e.clientY - boardTop;
+    tool.lineTo(finalX, finalY);
+    tool.stroke();
+    initialX = finalX;
+    initialY = finalY;
+});
+
+
+// Toggle size box for the selected tool and set the current tool
+pencil.addEventListener("click", function () {
+    cTool = "pencil";
+    tool.strokeStyle = penColor;
+    tool.lineWidth = pencilSize;
+});
+line.addEventListener("click", function () {
+    cTool = "line";
+    tool.strokeStyle = penColor;
+    tool.lineWidth = lineSize;
+});
+rect.addEventListener("click", function () {
+    cTool = "rect";
+    tool.strokeStyle = penColor;
+    tool.lineWidth = rectSize;
+});
+eraser.addEventListener("click", function () {
+    cTool = "eraser";
+    tool.strokeStyle = "white";
+    tool.lineWidth = eraserSize;
+});
+clearBoard.addEventListener("click", function () {
+    tool.clearRect(0, 0, window.innerWidth, window.innerHeight);
+});
+
+// Color change
+color.addEventListener("change",function(){
+    penColor = color.value;
+    tool.strokeStyle = penColor;
+
+});
+
+// Size Change
+let isPenClosed = true;
+arrow[0].addEventListener("click", function () {
+
+    if (isPenClosed == true) {
+        sizeBox[0].style.display = "flex";
+    } else {
+        sizeBox[0].style.display = "none";
+    }
+    isPenClosed = !isPenClosed;
+})
+sizeBox[0].addEventListener("click", function (e) {
+    cTool = "pencil";
+    if (e.target.classList[0] == "size1") {
+        pencilSize = 6;
+    }
+    if (e.target.classList[0] == "size2") {
+        pencilSize = 9;
+    }
+    if (e.target.classList[0] == "size3") {
+        pencilSize = 12;
+    }
+    if (e.target.classList[0] == "size4") {
+        pencilSize = 16;
+    }
+    tool.strokeStyle = penColor;
+    tool.lineWidth = pencilSize;
+    isPenClosed = !isPenClosed;
+    sizeBox[0].style.display = "none";
+})
+
+// Line
+let isLineClosed = true;
+arrow[1].addEventListener("click", function () {
+    if (isLineClosed == true) {
+        sizeBox[1].style.display = "flex";
+    } else {
+        sizeBox[1].style.display = "none";
+    }
+    isLineClosed = !isLineClosed;
+})
+sizeBox[1].addEventListener("click", function (e) {
+    cTool = "line";
+
+    if (e.target.classList[0] == "size1") {
+        lineSize = 6;
+    }
+    if (e.target.classList[0] == "size2") {
+        lineSize = 9;
+    }
+    if (e.target.classList[0] == "size3") {
+        lineSize = 12;
+    }
+    if (e.target.classList[0] == "size4") {
+        lineSize = 16;
+    }
+    tool.strokeStyle = penColor;
+    tool.lineWidth = lineSize;
+    isLineClosed = !isLineClosed;
+    sizeBox[1].style.display = "none";
+})
+
+// Rect
+let isRectClosed = true;
+arrow[2].addEventListener("click", function () {
+    if (isRectClosed == true) {
+        sizeBox[2].style.display = "flex";
+    } else {
+        sizeBox[2].style.display = "none";
+    }
+    isRectClosed = !isRectClosed;
+})
+sizeBox[2].addEventListener("click", function (e) {
+    cTool = "rect";
+
+    if (e.target.classList[0] == "size1") {
+        rectSize = 6;
+    }
+    if (e.target.classList[0] == "size2") {
+        rectSize = 9;
+    }
+    if (e.target.classList[0] == "size3") {
+        rectSize = 12;
+    }
+    if (e.target.classList[0] == "size4") {
+        rectSize = 16;
+    }
+    tool.strokeStyle = penColor;
+    tool.lineWidth = rectSize;
+    isRectClosed = !isRectClosed;
+    sizeBox[2].style.display = "none";
+})
+
+// Eraser
+let isEraser = true;
+arrow[3].addEventListener("click", function () {
+    if (isEraser == true) {
+        sizeBox[3].style.display = "flex";
+    } else {
+        sizeBox[3].style.display = "none";
+    }
+    isEraser = !isEraser;
+})
+sizeBox[3].addEventListener("click", function (e) {
+    cTool = "eraser";
+    if (e.target.classList[0] == "size1") {
+        eraserSize = 6;
+    }
+    if (e.target.classList[0] == "size2") {
+        eraserSize = 9;
+    }
+    if (e.target.classList[0] == "size3") {
+        eraserSize = 12;
+    }
+    if (e.target.classList[0] == "size4") {
+        eraserSize = 16;
+    }
+    tool.strokeStyle = "white";
+    tool.lineWidth = eraserSize;
+    isEraser = !isEraser;
+    sizeBox[3].style.display = "none";
+})
+
+
+// Download as PDF
+window.jsPDF = window.jspdf.jsPDF;
+downloadPdf.addEventListener("click",function(){
+    let pdfH = board.height;
+    let pdfW = board.width;
+    let pdf;
+    if(pdfW > pdfH){
+        pdf = new jsPDF('l', 'px', [pdfW, pdfH]);
+      }
+      else{
+        pdf = new jsPDF('p', 'px', [pdfH, pdfW]);
+    }
+    pdfW = pdf.internal.pageSize.getWidth();
+    pdfH = pdf.internal.pageSize.getHeight();
+    pdf.addImage(board, 'PNG', 0, 0,pdfW,pdfH);
+    pdf.save("download.pdf");
+})
         </script>
-
 </html>

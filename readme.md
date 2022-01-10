@@ -5,3 +5,4 @@ puppeteer
 pdf-lib
 axios
 jsdom
+jspdf
