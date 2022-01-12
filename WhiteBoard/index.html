@@ -98,25 +98,30 @@
                     </div>
                 </div>
             
-                <div class="clearBoard tools">
+                <div class="clearBoard">
                     <img src="./Assets/clearBoard.png" alt="" title="Clear board" changeTool="here">
                 </div>
     
                 <div class="color-container">
-                    <input type="color" class="choose-color" title="Select color" value="black">
+                    <input type="color" class="choose-color" title="Select color" value="#000000">
                 </div>
                 
                 <div class="downloadPdf">
                     <img src="./Assets/download.png" alt="" title="Clear board" changeTool="here">
                 </div>
-    
+
+                <div class="codeEditor">
+                    <img src="./Assets/pyEditor.svg" alt="" title="Open Editor" height="90px" margin="0">
+                </div>
             </div>
             <canvas></canvas>
         </div>
     </div>
+    <div>
+        <iframe class="code" frameborder="0" src="https://replit.com/@Lakshay25/BowedCheeryEmbed?lite=true>"></iframe>
+    </div>
 
     <body>
-
         <script>
             // variable declaration
 let board = document.querySelector("canvas");
@@ -134,8 +139,8 @@ let downloadPdf = document.querySelector(".downloadPdf");
 let notes = document.querySelector("#ulNotes");
 let addNotes = document.querySelector(".add");
 let deleteNotes = document.querySelector(".clean-notes");
-
-
+let codeEditor = document.querySelector(".codeEditor");
+let code = document.querySelector(".code");
 let cTool = "pencil";
 
 let pencilSize = 6;
@@ -148,9 +153,9 @@ let penColor = color.value;
 board.height = 710;
 board.width = 1440;
 
-// To find the offset in board 
-boardLeft = board.getBoundingClientRect().left+6;
-boardTop = board.getBoundingClientRect().top+6;
+// // To find the offset in board 
+// boardLeft = board.getBoundingClientRect().left+6;
+// boardTop = board.getBoundingClientRect().top+6;
 
 let initialX, initialY, finalX, finalY;
 let drawingMode = false;
@@ -159,6 +164,8 @@ let drawingMode = false;
 
 // Drawing Feature
 body.addEventListener("mousedown", function (e) {
+    boardLeft = board.getBoundingClientRect().left+6;
+    boardTop = board.getBoundingClientRect().top+6;
 
     initialX = e.clientX - boardLeft;
     initialY = e.clientY - boardTop;
@@ -170,6 +177,9 @@ body.addEventListener("mousedown", function (e) {
 
 });
 body.addEventListener("mouseup", function (e) {
+    boardLeft = board.getBoundingClientRect().left+6;
+    boardTop = board.getBoundingClientRect().top+6; 
+    
     if (cTool == "pencil" || cTool == "eraser") {
         drawingMode = false;
 
@@ -191,6 +201,9 @@ body.addEventListener("mouseup", function (e) {
 });
 body.addEventListener("mousemove", function (e) {
 
+    boardLeft = board.getBoundingClientRect().left+6;
+    boardTop = board.getBoundingClientRect().top+6;
+    
     if (drawingMode == false)
         return;
     finalX = e.clientX - boardLeft;
@@ -426,5 +439,16 @@ addNotes.addEventListener("click", function () {
                 return;
             }
     })
+
+    let isCodeClosed = true;
+    codeEditor.addEventListener("click",function(){
+        if(isCodeClosed){
+            code.style.display = "block";
+        }else{
+            code.style.display = "none";
+        }
+        isCodeClosed = !isCodeClosed;
+    })
+
         </script>
 </html>

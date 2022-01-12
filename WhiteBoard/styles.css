@@ -189,3 +189,10 @@ div img[changeSize="here"]{
     border-top: 2px solid gray;
     resize: none; 
 }
+
+div iframe{
+    width: 98vw;
+    height: 600px;
+    margin: 0 auto;
+    display: none;
+}
