@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Book</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">   
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <div class="header">
+        <div id="container-header">
+            <div class="current-user">
+                <h3 id="current-user-name"></h3>
+            </div>
+            <h2 id="page-title">Code Book</h2>
+            <button id="logout-btn">Logout</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="board-content">
+            <div class="new-toolbar">
+                <ul>
+                    <li class="outer-list">
+                        <img class="pencil" src="./Assets/pen.svg" title="pen" width="60px" height="60px">
+                        <ul class="inner-list">
+                            <li class="size size1"></li>
+                            <li class="size size2"></li>
+                            <li class="size size3"></li>
+                        </ul>
+                    </li>
+                    <li class="outer-list">
+                        <img class="line" src="./Assets/line.png" title="line" width="60px" height="60px">
+                        <ul class="inner-list">
+                            <li class="size size1"></li>
+                            <li class="size size2"></li>
+                            <li class="size size3"></li>
+                        </ul>
+                    </li>
+                    <li class="outer-list">
+                        <img class="rect" src="./Assets/rectangle.svg" title="rectangle" width="60px" height="60px">
+                        <ul class="inner-list">
+                            <li class="size size1"></li>
+                            <li class="size size2"></li>
+                            <li class="size size3"></li>
+                        </ul>
+                    </li>
+                    <li class="outer-list">
+                        <img class="eraser" src="./Assets/eraser.svg" title="eraser" width="60px" height="60px">
+                        <ul class="inner-list">
+                            <li class="size size1"></li>
+                            <li class="size size2"></li>
+                            <li class="size size3"></li>
+                        </ul>
+        
+                    </li>
+                    <li class="outer-list">
+                        <input class="choose-color" type="color" id="primary-color" title="input color">
+                    </li>
+                    <li class="outer-list">
+                        <img class="clearBoard" src="./Assets/clearBoard.png" title="Clear Board" width="60px" height="60px">
+                    </li>
+                    <li class="outer-list">
+                        <img class="downloadPdf"src="./Assets/download.png" title="Download" width="60px" height="60px">
+                    </li>
+                    <li class="outer-list">
+                        <img class="codeEditor" src="./Assets/code-editor.png" title="Code Editor" width="60px" height="60px">
+                    </li>
+                    <li class="outer-list">
+                        <button class="btn-in-toolbar" id="saveOnDB">Save</button>
+                    </li>
+                    <li class="outer-list">
+                        <button class="btn-in-toolbar" id="getFromDB">Load</button>
+                    </li>
+                    
+                </ul>
+            </div>
+            <canvas class="my-canvas"></canvas>
+        </div>
+        <div class="notes-container">
+            <div class="heading-notes">Sticky Notes</div>
+            <div class="buttons">
+                <button class="add">New</button>
+                <button class="clean-notes">Delete All</button>
+            </div>
+            <div class="notes">
+                <ul id="ulNotes"></ul>
+            </div>
+        </div>
+        
+    </div>
+    <div>
+        <iframe class="code" frameborder="0" src="https://replit.com/@Lakshay25/CrookedQuickDiscussion?lite=true#Main.java"></iframe>
+    </div>
+    <script type="module" src="app.js"></script>
+    <script src="home.js" ></script>
+</body>
+</html>

@@ -1,1 +1,0 @@
-https://whiteboardlak.netlify.app/

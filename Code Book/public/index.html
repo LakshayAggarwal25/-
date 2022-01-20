@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div id="particles-js">
+        <div class="heading">
+            <h3>Code Book</h3>
+        </div>
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="input" class="toggle-btn" onclick="displayLogin()">Login</button>
+                <button type="input" class="toggle-btn" onclick="displayRegister()">Signup</button>
+            </div>
+            <div id="login" class="input-group">
+                <input type="text" class="input-field" placeholder="Mail Id" id="user-mail" required>
+                <input type="password" class="input-field" placeholder="Enter password" id="user-pass" required>
+                <button class="submit-btn" id="submitBtnLogin">Log In</button>
+            </div>
+
+            <div id="register" class="input-group">
+                <input type="text" class="input-field" placeholder="User Name" id="new-user-name" required>
+                <input type="email" class="input-field" placeholder="Enter Email" id="new-user-mail" required>
+                <input type="password" class="input-field" placeholder="Enter password" id="new-user-pass" required>
+                <button class="submit-btn" id="submitBtnRegis">Register</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let login = document.querySelector("#login");
+    let register = document.querySelector("#register");
+    let btn = document.querySelector("#btn");
+
+    function displayRegister() {
+        login.style.left = "-400px";
+        register.style.left = "50px";
+        btn.style.left = "110px";
+    }
+
+    function displayLogin() {
+        login.style.left = "50px";
+        register.style.left = "450px";
+        btn.style.left = "0px";
+    }
+
+</script>
+<script type="module" src="app.js"></script>
+<script src="Assets/particles.js-master/particles.js-master/particles.js"></script>
+<script src="Assets/particles.js-master/particles.js-master/demo/js/app.js"></script>
+
+</html>
