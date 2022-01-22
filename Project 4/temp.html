@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .mini-menu-container {
+        padding: 0;
+        margin: 0;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: flex-end;
+    }
+
+    .three-dots {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        height: 34px;
+        width: 34px;
+        line-height: 36px;
+        text-align: right;
+        padding-right: 3px;
+        font-size: 28px;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .three-dots:hover {
+        background-color: whitesmoke;
+        border-radius: 50%;
+    }
+
+    .mini-menu {
+        list-style: none;
+        margin: 6px 0 0 0;
+        padding: 0;
+        display: flex;
+        width: 60px;
+        border: 1px solid black;
+        border-radius: 6px;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        background-color: whitesmoke;
+        display:none;
+    }
+</style>
+
+<body>
+    <div class="mini-menu-container">
+        <button class="three-dots">&#10247</button>
+        <ul class="mini-menu">
+            <li class="check">View</li>
+            <li>Edit</li>
+            <li>Delete</li>
+        </ul>
+    </div>
+    <script>
+        (function () {
+            let btn = document.querySelector(".three-dots");
+            let mm = document.querySelector(".mini-menu");
+            let menuToggle = true;
+            let c = mm.querySelector(".check");
+            function toggleMenuDisplay(){
+                if(menuToggle){
+                    mm.style.display ="flex";
+                }
+                else{
+                    mm.style.display ="none";
+                }
+                menuToggle = !menuToggle;
+            }
+            c.addEventListener("click",function(){
+                alert("Here");
+                toggleMenuDisplay();
+            })
+            btn.addEventListener("click",function(){
+                toggleMenuDisplay()
+            });
+            
+        })();
+    </script>
+</body>
+
+</html>
