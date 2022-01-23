@@ -87,8 +87,9 @@
             display: flex;
             justify-content: center;
             margin: 15px 0;
+            gap :10px
         }
-        #add-button {
+        #add-button , #add-file-button {
             height: fit-content;
             width: fit-content;
             padding: 20px;
@@ -100,7 +101,7 @@
             cursor: pointer;
 
         }
-        #add-button:active {
+        #add-button:active , #add-file-button:active{
             background-color: rgb(15, 138, 21);
         }
         .bread-crumb{
@@ -121,11 +122,27 @@
             cursor: pointer;
         }
     </style>
+    <style>
+        .text-file-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: fit-content;
+            gap: 6px;
+        }
+        .text-file-name {
+            width: 100px;
+            text-align: center;
+            word-break: break-all;
+            font-size: 20px;
+        }
+    </style>
 </head>
 
 <body>
     <div class="btn-container">
         <button id="add-button">Add Folder</button>
+        <button id="add-file-button">Add File</button>
     </div>
     <div class="bread-crumb">
         <a class="path" fid="-1">Root</a>
@@ -152,7 +169,27 @@
             <a class="path"></a>
         </div>
     </template>
+    
+    <template class="text-files-template">
+        <div class="text-file-box">
+            <div class="icon-menu">
+                <img src="Assets/text-file-icon.svg" class="file-img" style="height: 100px; width: 100px;">
+                <div class="mini-menu-container">
+                    <button class="three-dots">&#10247</button>
+                    <ul class="mini-menu">
+                        <li action="view">View</li>
+                        <li action="edit">Edit</li>
+                        <li action="delete">Delete</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-file-name" action="set-name"></div>
+        </div>
+    </template>
+
     <script type="text/javascript" src="temp.js"></script>
+
+
 </body>
 
 </html>
