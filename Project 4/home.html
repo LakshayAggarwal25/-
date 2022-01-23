@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="folders.css">
+    <link rel= "stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="breadCrumb.css">
+</head>
+
+<body>
+    <div class="btn-container">
+        <button id="add-button">Add Folder</button>
+    </div>
+    <div class="bread-crumb">
+        <a class="path" fid="-1">Root</a>
+    </div>
+    <div class="folders-container">
+    </div>
+    <template class="folder-template">
+        <div class="folder-box">
+            <div class="icon-menu">
+                <img src="Assets/folder-icon.svg"  class="folder-img" style="height: 100px; width: 100px;">
+                <div class="mini-menu-container">
+                    <button class="three-dots">&#10247</button>
+                    <ul class="mini-menu">
+                        <li action="view">View</li>
+                        <li action="edit">Edit</li>
+                        <li action="delete">Delete</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="folder-name" action="set-name"></div>
+        </div>
+        <div class="img-path">
+            <img src="Assets/right-arrow-icon-3.svg" style="height: 20px;">
+            <a class="path"></a>
+        </div>
+    </template>
+    <script type="text/javascript" src="home.js"></script>
+</body>
+
+</html>

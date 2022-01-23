@@ -1,0 +1,17 @@
+.bread-crumb{
+    margin: 8px 20px;
+    border: 4px solid gainsboro;
+    height: fit-content;
+    padding: 10px;
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+    font-size: 18px;
+}
+.img-path{
+    display: flex;
+    gap: 3px;
+}
+.path{
+    cursor: pointer;
+}
