@@ -137,6 +137,94 @@
             font-size: 20px;
         }
     </style>
+    
+    <style>
+        /*yeh wala change folder and file css mai bhi karna hai*/
+        .folder-img, .file-img{
+            cursor: pointer;
+        }
+    </style>
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .text-app{
+            margin: 10px 20px;
+            display: flex;
+            flex-direction: column;
+            height: 60vh;
+            border: 2px solid black;
+            display: none;
+        }
+        .text-app-titlebar{
+            display: flex;
+            height: fit-content;
+            justify-content: space-between;
+            border-bottom: 1px solid black;
+        }
+        .text-app-title{
+            padding : 2px;
+            padding-left:10px;
+            font-size : 36px;
+        }
+        .action-keys{
+            display: flex;
+            gap: 6px;
+            align-content: center;
+            justify-content: center;
+        }
+        .text-app-menubar{
+            display: flex;
+            border-bottom: 1px solid black;
+            height: fit-content
+        }
+        .text-app-body{
+            display: flex;
+            
+            height: 100%;
+            width: 100%;
+        }
+        .notepad-body{
+            height: 100%;
+            width: 100%;
+        }
+        .notepad-body textarea{
+            height: 100%;
+            width: 100%;
+            outline: none;
+            resize: none;
+            border: none;
+            font-size: 10pt;
+            font-family: monospace;
+            margin: 0 auto;
+        }
+        .notepad-menu{
+            padding: 3px;
+            padding-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap:20px;
+            flex-wrap: wrap;
+        }
+        .material-icons{
+            cursor: pointer;
+        }
+        .notepad-menu input{
+            cursor: pointer;
+            outline: none;
+            border: none;
+            padding: none;
+            width: 24px;
+        }
+        .notepad-menu [pressed="true"]{
+            background-color: black;
+            color: whitesmoke;
+        }
+        select{
+            border-radius: 4px;
+        }
+    </style>
 </head>
 
 <body>
@@ -149,6 +237,51 @@
     </div>
     <div class="folders-container">
     </div>
+
+    <div class="text-app">
+        <div class="text-app-titlebar">
+            <div class="text-app-title">Title</div>
+            <div class="action-keys">
+                <!-- <span class="material-icons">horizontal_rule</span> -->
+                <!-- <span class="material-icons">crop_square</span> -->
+                <span class="material-icons" action="close-app">close</span>
+            </div>
+        </div>
+        <div class="text-app-menubar">Menu</div>
+        <div class="text-app-body"></div>
+    </div>
+<template class="notepad-template">
+    <div class="notepad-app">
+        <div class="notepad-menu">
+            <span pressed="false"  class="material-icons" action="bold">format_bold</span>
+            <span pressed="false"  class="material-icons" action="italic">format_italic</span>
+            <span pressed="false"  class="material-icons" action="underline">format_underline</span>
+            <span pressed="false" class="material-icons" action="save">save</span>
+            <input type="color" purpose="bg-color" title="Background Color">
+            <input type="color" purpose="fg-color" title="Text Color">
+            <select purpose="font-family">
+                <option value="monospace">monospace</option>
+                <option value="serif">serif</option>
+                <option value="sans-serif">sans-serif</option>
+                <option value="cursive">cursive</option>
+            </select>
+            <select purpose="font-size">
+                <option value="10pt">10</option>
+                <option value="12pt">12</option>
+                <option value="14pt">14</option>
+                <option value="16pt">16</option>
+                <option value="18pt">18</option>
+                <option value="20pt">20</option>
+                <option value="22pt">22</option>
+            </select>
+        </div>
+        <div class="notepad-body">
+            <textarea>Notepads body</textarea>
+        </div>
+    </div>
+</template>
+
+
     <template class="folder-template">
         <div class="folder-box">
             <div class="icon-menu">
