@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        * {
+            font-size: 20px;
+            font-family: 'Bree Serif', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1F2833;
+
+        }
+    </style>
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="sreachArea.css">
+    <link rel="stylesheet" href="folders.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <div class="sidebar-btn">&equiv;</div>
+    <div class="sidebar-container">
+        <div class="user-details-container">
+            <div class="user-name">Lakshay Aggarwal</div>
+        </div>
+        <hr>
+        <div class="resource-type-list">
+            <div class="resource-list-item root-list">Root</div>
+            <div class="resource-list-item folder-list"><span class="material-icons">folder</span>Folders</div>
+            <div class="resource-list-item file-list"><span class="material-icons">description</span>Text Files</div>
+        </div>
+    </div>
+    <div class="search-bar-container">
+        <div class="search-bar">
+            <input type="text" placeholder="Search here">
+            <span class="material-icons" id="search">search</span>
+        </div>
+    </div>
+    <hr>
+
+    <div class="buttons-container">
+        <button class = "main-btns" id="add-folder">Add Folder</button>
+        <button class = "main-btns" id="add-file">Add File</button>
+    </div>
+
+    <div class="bread-crumb-container">
+        <a class="path" fid="-1">Root</a>
+    </div>
+
+
+    <div class="resources-container">
+        <div class="folder-box">
+            <div class="icon-menu">
+                <img src="/Project 4/Assets/folder-icon.svg" class="folder-img" style="height: 100px; width: 100px;">
+                <div class="mini-menu-container">
+                    <button class="three-dots">&#10247</button>
+                    <ul class="mini-menu">
+                        <li action="view">View</li>
+                        <li action="delete">Delete</li>
+                        <li action="edit">Rename</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="folder-name" action="set-name">Folder 1</div>
+        </div>
+
+        <div class="file-box">
+            <div class="icon-menu">
+                <img src="/Project 4/Assets/text-file-icon.svg" class="file-img" style="height: 100px; width: 100px;">
+                <div class="mini-menu-container">
+                    <button class="three-dots">&#10247</button>
+                    <ul class="mini-menu">
+                        <li action="view">View</li>
+                        <li action="delete">Delete</li>
+                        <li action="edit">Rename</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="file-name" action="set-name">File 1</div>
+        </div>
+        
+    </div>
+
+
+
+
+
+
+    <template class="folders-template">
+        <div class="folder-box">
+            <div class="icon-menu">
+                <img src="/Project 4/Assets/folder-icon.svg" class="folder-img" style="height: 100px; width: 100px;">
+                <div class="mini-menu-container">
+                    <button class="three-dots">&#10247</button>
+                    <ul class="mini-menu">
+                        <li action="view">View</li>
+                        <li action="delete">Delete</li>
+                        <li action="rename">Rename</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="folder-name" action="set-name"></div>
+        </div>
+    </template>
+    <template class="files-template">
+        <div class="file-box">
+            <div class="icon-menu">
+                <img src="/Project 4/Assets/text-file-icon.svg" class="file-img" style="height: 100px; width: 100px;">
+                <div class="mini-menu-container">
+                    <button class="three-dots">&#10247</button>
+                    <ul class="mini-menu">
+                        <li action="view">View</li>
+                        <li action="delete">Delete</li>
+                        <li action="rename">Rename</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="file-name" action="set-name"></div>
+        </div>
+    </template>
+</body>
+<script src="./sidebarOpenClose.js"></script>
+<script>
+
+</script>
+
+</html>
