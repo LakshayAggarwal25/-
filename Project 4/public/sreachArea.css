@@ -23,6 +23,11 @@
     width: 100%;
     color: black;
 }
+.search-bar input:focus{
+
+    box-shadow: 0px 4px 4px 4px #1e186d;
+}
+
 #search{
     margin-left: .25rem;
     font-size: 2rem;

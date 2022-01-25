@@ -77,9 +77,9 @@
     background-color: transparent;
 }
 
-@media screen and (max-width:1500px){
+@media screen and (max-width:1440px){
     .sidebar-container{
-        max-width: 4rem;
+        max-width: 10vw
     }
     .user-details-container{
        opacity: 0;
@@ -94,11 +94,16 @@
     }
     .root-list:hover{
         border-radius: 0;
+     }
+}
+@media screen and (max-width:1024px){
+    .sidebar-container{
+        max-width: 10vw
     }
     .folder-list{
         font-size: 0;
     }
     .file-list{
         font-size :0;
-    }
+    } 
 }

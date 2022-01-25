@@ -28,13 +28,25 @@
 }
 
 
-@media screen and (max-width:1000px){
-   .main-btns{
-       font-size: .75rem;
-   }
+.pop-up-btns{
+    background-color: white;
+    margin-right: 10%;
+    display: flex;
+    gap: 1rem;
 }
-@media screen and (max-width:720px){
-    .main-btns{
-        font-size: .5rem;
-    }
- }
+.pop-up-btns button{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    color: black;
+    font-size: 1rem;
+    padding: .25rem;
+}
+.pop-up-btns button:hover{
+    background-color: #66fcf1;
+    border-radius: .3rem;
+}
+.pop-up-btns button:active{
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.75);
+    transform: scale(.95);
+}
