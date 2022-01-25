@@ -1,4 +1,4 @@
-#overlay{
+#overlay ,#overlay-2,#overlay-3 {
     position: fixed;
     top: 0;
     left: 0;
@@ -10,11 +10,11 @@
     pointer-events: none;
     z-index: 9;
 }
-#overlay.active{
+#overlay.active,#overlay-2.active,#overlay-3.active{
     opacity: 1;
     pointer-events: all;
 }
-.pop-up-input{
+.pop-up-input,.pop-up-input-2{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -33,10 +33,10 @@
     padding-bottom: .75rem;
     border-radius: 1rem;
 }
-.pop-up-input.active{
+.pop-up-input.active,.pop-up-input-2.active{
     transform: translate(-50%,-150%) scale(1);
 }
-.pop-up-input input{
+.pop-up-input input,.pop-up-input-2 input{
     border: none;
     outline: none;
     height: 2rem;

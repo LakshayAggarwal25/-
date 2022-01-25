@@ -28,13 +28,13 @@
 }
 
 
-.pop-up-btns{
+.pop-up-btns,.pop-up-btns-2{
     background-color: white;
     margin-right: 10%;
     display: flex;
     gap: 1rem;
 }
-.pop-up-btns button{
+.pop-up-btns button,.pop-up-btns-2 button{
     background-color: white;
     border: none;
     cursor: pointer;
@@ -42,11 +42,11 @@
     font-size: 1rem;
     padding: .25rem;
 }
-.pop-up-btns button:hover{
+.pop-up-btns button:hover,.pop-up-btns-2 button:hover{
     background-color: #66fcf1;
     border-radius: .3rem;
 }
-.pop-up-btns button:active{
+.pop-up-btns button:active,.pop-up-btns-2 button:active{
     box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.75);
     transform: scale(.95);
 }

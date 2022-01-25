@@ -1,3 +1,96 @@
+var inputByUserFolder;
+function addFolderUser() {
+    inputByUserFolder = false;
+    let popup = document.querySelector(".pop-up-input");
+    let overlay = document.querySelector("#overlay");
+    let input = document.querySelector("#pop-up-input-content");
+    let inputEntered = document.querySelector("#pop-up-input-ok");
+    let closePop = document.querySelector("#pop-up-input-cancel");
+
+    inputEntered.addEventListener("click", getInput);
+    closePop.addEventListener("click", closePopup);
+    overlay.addEventListener("click", closePopup);
+
+
+    function openPopup() {
+        popup.classList.add("active");
+        overlay.classList.add("active");
+    }
+
+    function getInput() {
+        let userInput = input.value;
+        if (userInput) {
+            userInput = userInput.trim();
+            if (userInput) {
+                inputByUserFolder = userInput;
+                input.value = "";
+                addFolder();
+                closePopup();
+                return;    
+            }
+        }
+        closePopup();
+        return;
+    }
+
+    function closePopup() {
+        popup.classList.remove("active");
+        overlay.classList.remove("active");
+        return;
+
+    }
+
+    openPopup();
+    return;
+}
+
+var inputByUserFile;
+function addFileUser() {
+    inputByUserFile = false;
+    let popup = document.querySelector(".pop-up-input-2");
+    let overlay = document.querySelector("#overlay-2");
+    let input = document.querySelector("#pop-up-input-content-2");
+    let inputEntered = document.querySelector("#pop-up-input-ok-2");
+    let closePop = document.querySelector("#pop-up-input-cancel-2");
+
+    inputEntered.addEventListener("click", getInput);
+    closePop.addEventListener("click", closePopup);
+    overlay.addEventListener("click", closePopup);
+
+
+    function openPopup() {
+        popup.classList.add("active");
+        overlay.classList.add("active");
+    }
+
+    function getInput() {
+        let userInput = input.value;
+        if (userInput) {
+            userInput = userInput.trim();
+            if (userInput) {
+                inputByUserFile = userInput;
+                input.value = "";
+                addFile();
+                closePopup();
+                return;
+            }
+        }
+        closePopup();
+        return;
+
+    }
+
+    function closePopup() {
+        popup.classList.remove("active");
+        overlay.classList.remove("active");
+        return;
+
+    }
+
+    openPopup();
+    return;
+}
+
 let folderMainTemplate = document.querySelector(".folders-template");
 let breadCrumbMainTemplate = document.querySelector(".breadcrumb-template");
 let breadCrumb = document.querySelector(".bread-crumb-container");
@@ -9,24 +102,25 @@ let id = -1;
 
 let addFolderBtn = document.querySelector("#add-folder");
 
+breadCrumb.style.opacity = "1";
 
 addFolderBtn.addEventListener("click", () => {
     if(breadCrumb.style.opacity==0){
         alert("Can not create a folder here!!!");
         return;
     }
-    getUserInput(addFolder);
+    addFolderUser();
 });
 
 function addFolder() {
-    if (inputByUser == false) {
+    if (inputByUserFolder == false) {
         return;
     }
-    if (inputByUser.length > 15) {
+    if (inputByUserFolder.length > 15) {
         alert("Folder name cannot be more than 15 characters");
         return;
     }
-    let folderNameExists = resources.filter(r => r.pid == cfid).filter(r => r.rType == "folder").some(f => f.name == inputByUser);
+    let folderNameExists = resources.filter(r => r.pid == cfid).filter(r => r.rType == "folder").some(f => f.name == inputByUserFolder);
     if (folderNameExists) {
         alert("Folder name already exists");
         return;
@@ -37,12 +131,12 @@ function addFolder() {
     resources.push({
         pid: cfid,
         id: id,
-        name: inputByUser,
+        name: inputByUserFolder,
         rType: "folder"
     });
 
     //Updating View
-    addFolderToHtml(inputByUser, id, cfid);
+    addFolderToHtml(inputByUserFolder, id, cfid);
 
     //Updating Storage
     saveToLocalStorage();
@@ -165,18 +259,18 @@ addFileBtn.addEventListener("click", () => {
         alert("Can not create a file here!!!");
         return;
     }
-    getUserInput(addFile);
+    addFileUser();
 });
 
 function addFile() {
-    if (inputByUser == false) {
+    if (inputByUserFile == false) {
         return;
     }
-    if (inputByUser.length > 15) {
-        alert("Folder name cannot be more than 15 characters");
+    if (inputByUserFile.length > 15) {
+        alert("File name cannot be more than 15 characters");
         return;
     }
-    let fileNameExists = resources.filter(r => r.pid == cfid).filter(r => r.rType == "file").some(f => f.name == inputByUser);
+    let fileNameExists = resources.filter(r => r.pid == cfid).filter(r => r.rType == "file").some(f => f.name == inputByUserFile);
     if (fileNameExists) {
         alert("file name already exists");
         return;
@@ -187,12 +281,21 @@ function addFile() {
     resources.push({
         pid: cfid,
         id: id,
-        name: inputByUser,
-        rType: "file"
+        name: inputByUserFile,
+        rType: "file",
+        styleBold : false,
+        styleItalic : false,
+        styleUnderline : false,
+        styleBgColor : "#ffffff",
+        styleFgColor : "#000000",
+        styleFontFam : "serif",
+        styleFontSize : "14pt",
+        content : "This is new file",
+        containerColor : "#f08080"
     });
 
     //Updating View
-    addFileToHtml(inputByUser, id, cfid);
+    addFileToHtml(inputByUserFile, id, cfid);
 
     //Updating Storage
     saveToLocalStorage();
@@ -236,10 +339,29 @@ function addFileToHtml(name, id, pid) {
     resourcesContainer.appendChild(fileBoxDiv);
 }
 function viewFile() {
+    let fileBox = this.parentNode.parentNode.parentNode.parentNode;
+    let id = parseInt(fileBox.getAttribute("id"));
+    let file = resources.find(r=>r.id==id);
     
+    if(breadCrumb.style.opacity==0){
+        makeBreadCrumb(file.pid);
+        addToHtml(resources,file.pid);
+        return;
+    }
+
+    openTextApp(file);
 }
 function viewFileByImg() {
-    
+    let fileBox = this.parentNode.parentNode;
+    let id = parseInt(fileBox.getAttribute("id"));
+    let file = resources.find(r=>r.id==id);
+
+    if(breadCrumb.style.opacity==0){
+        makeBreadCrumb(file.pid);
+        addToHtml(resources,file.pid);
+        return;
+    }
+    openTextApp(file);
 }
 function renameFile() {
     let newName = prompt("Enter new name ");

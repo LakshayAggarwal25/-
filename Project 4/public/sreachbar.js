@@ -12,8 +12,23 @@ searchBtn.addEventListener("click",()=>{
     breadCrumb.style.opacity = "0";
     breadCrumb.style['pointer-events'] = 'none';
     let arr = resources.filter(r=>{
-        return r.name.includes(searchInput);
+        if(r.rType == "folder"){
+            return r.name.includes(searchInput);
+        }
     })
+    let arr2 = resources.filter(r=>{
+        if(r.rType == "file"){
+            if(r.name.includes(searchInput) ||r.content.includes(searchInput))
+            return true;
+        }
+    })
+
+    arr = arr.concat(arr2);
+
+    if(arr.length == 0){
+        resourcesContainer.innerHTML = `<div style='color:white;'>No Matching Results Found</div>`;
+        return;
+    }
     addToHtml(arr,-2);
     searchByUser.value="";
 })
