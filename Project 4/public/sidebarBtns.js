@@ -17,6 +17,10 @@ folderSBtn.addEventListener("click",()=>{
     let onlyFoldersArray = resources.filter(r=>r.rType == "folder");
     breadCrumb.style.opacity = "0";
     breadCrumb.style['pointer-events'] = 'none';
+    if(onlyFoldersArray.length == 0){
+        resourcesContainer.innerHTML = `<div style='color:white;'>No Folders Found</div>`;
+        return;
+    }
     addToHtml(onlyFoldersArray,-2);
 })
 
@@ -24,5 +28,9 @@ fileSBtn.addEventListener("click",()=>{
     let onlyFilesArray = resources.filter(r=>r.rType == "file");
     breadCrumb.style.opacity = "0";
     breadCrumb.style['pointer-events'] = 'none';
+    if(onlyFilesArray.length == 0){
+        resourcesContainer.innerHTML = `<div style='color:white;'>No Files Found</div>`;
+        return;
+    }
     addToHtml(onlyFilesArray,-2);
 })
