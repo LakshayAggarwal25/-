@@ -1,7 +1,7 @@
 let rootSBtn = document.querySelector(".root-list");
 let folderSBtn = document.querySelector(".folder-list");
 let fileSBtn = document.querySelector(".file-list");
-
+let albumSBtn = document.querySelector(".album-list");
 rootSBtn.addEventListener("click",()=>{
     addToHtml(resources,-1);
     breadCrumb.style.opacity = "1";
@@ -33,4 +33,16 @@ fileSBtn.addEventListener("click",()=>{
         return;
     }
     addToHtml(onlyFilesArray,-2);
+})
+
+
+albumSBtn.addEventListener("click",()=>{
+    let onlyAlbumsArray = resources.filter(r=>r.rType == "album");
+    breadCrumb.style.opacity = "0";
+    breadCrumb.style['pointer-events'] = 'none';
+    if(onlyAlbumsArray.length == 0){
+        resourcesContainer.innerHTML = `<div style='color:white;'>No Albums Found</div>`;
+        return;
+    }
+    addToHtml(onlyAlbumsArray,-2);
 })

@@ -73,6 +73,18 @@
     background-color: whitesmoke;
     border-radius: 1rem;
 }
+
+.album-list{
+    color: #4caf50;
+}
+.album-list:hover{
+    color: #09bd12;
+    background-color: white;
+    border-radius: 1rem;
+    
+}
+
+
 .material-icons{
     background-color: transparent;
 }
@@ -103,7 +115,8 @@
     .folder-list{
         font-size: 0;
     }
-    .file-list{
+    .file-list,.album-list{
         font-size :0;
     } 
+
 }

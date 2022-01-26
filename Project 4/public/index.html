@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="buttons.css">
     <link rel="stylesheet" href="userInput.css">
     <link rel="stylesheet" href="textFileEditor.css">
+    <link rel="stylesheet" href="album.css">
     <link rel="stylesheet" href="home.css">
 </head>
 
@@ -56,6 +57,15 @@
         </div>
     </div>
     <div id="overlay-2" class=""></div>
+    <div class="pop-up-input-4">
+        <input type="text" placeholder="Enter name here" id="pop-up-input-content-4">
+        <div class="pop-up-btns-4">
+            <button id="pop-up-input-ok-4">Ok</button>
+            <button id="pop-up-input-cancel-4">Cancel</button>
+        </div>
+    </div>
+    <div id="overlay-4" class=""></div>
+
     <div class="pop-up-text-app">
         <div class="text-app-titlebar">
             <div class="text-app-title">Title here</div>
@@ -95,6 +105,35 @@
             <textarea class="text-app-textarea"></textarea>
         </div>
     </div>
+    <div class="pop-up-album-app">
+        <div class="album-app-titlebar">
+            <div class="album-app-title">Title here</div>
+            <div class="album-app-close-btn">&times;</div>
+        </div>
+        <hr>
+        <div class="album-app-menubar">
+            <span class="album-app-menu-item material-icons" action="add-img">add_photo_alternate</span>
+            <span class="album-app-menu-item material-icons" action="nav-left">arrow_back_ios_new</span>
+            <span class="album-app-menu-item material-icons" action="play">play_arrow</span>
+            <span class="album-app-menu-item material-icons" action="nav-right">arrow_forward_ios</span>
+            <span class="album-app-menu-item material-icons" action="delete">delete</span>
+        </div>
+        <hr>
+        <div class="album-app-image-container">
+            <div class="album-app-navigate-left-container" btn="left"><span class="nav-arrow material-icons">arrow_back_ios_new</span></div>
+            <div class="album-app-image-area">
+                <img src="" alt="" id="album-main-img">
+            </div>
+            <div class="album-app-navigate-right-container" btn="right"><span class="nav-arrow material-icons">arrow_forward_ios</span></div>
+        </div>
+        <div class="album-app-images">
+            <template class="image-thumbnails">
+                <div class="album-app-thumbnail">
+                    <img src="">
+                </div>
+            </template>
+        </div>
+    </div>
     <div id="overlay" class=""></div>
     <div id="overlay-3" class=""></div>
 
@@ -110,6 +149,8 @@
             <div class="resource-list-item root-list">Root</div>
             <div class="resource-list-item folder-list"><span class="material-icons">folder</span>Folders</div>
             <div class="resource-list-item file-list"><span class="material-icons">description</span>Text Files</div>
+            <div class="resource-list-item album-list"><span class="material-icons">photo_library</span>Albums</div>
+
         </div>
     </div>
 
@@ -126,6 +167,7 @@
     <div class="buttons-container">
         <button class = "main-btns" id="add-folder">Add Folder</button>
         <button class = "main-btns" id="add-file">Add File</button>
+        <button class = "main-btns" id="add-album">Add Album</button>
     </div>
 
 
@@ -174,6 +216,23 @@
         </div>
     </template>
 
+    <template class="albums-template">
+        <div class="album-box">
+            <div class="icon-menu">
+                <img src="album-icon.svg" class="album-img" style="height: 100px; width: 100px; cursor: pointer;">
+                <div class="mini-menu-container">
+                    <button class="three-dots">&#10247</button>
+                    <ul class="mini-menu">
+                        <li action="view">View</li>
+                        <li action="delete">Delete</li>
+                        <li action="rename">Rename</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="album-name" action="set-name"></div>
+        </div>
+    </template>
+
     <template class="breadcrumb-template">
         <div class="img-path">
             <img src="./right-arrow-icon-3.svg" style="height: 20px;">
@@ -185,6 +244,7 @@
 <script src="./folderSys.js"></script>
 <script src="./sidebarBtns.js"></script>
 <script src="./fileSys.js"></script>
+<script src="./albumSys.js"></script>
 <script src="./sreachbar.js"></script>
 <script>
 </script>

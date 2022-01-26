@@ -12,7 +12,7 @@ searchBtn.addEventListener("click",()=>{
     breadCrumb.style.opacity = "0";
     breadCrumb.style['pointer-events'] = 'none';
     let arr = resources.filter(r=>{
-        if(r.rType == "folder"){
+        if(r.rType == "folder" || r.rType == "album"){
             return r.name.includes(searchInput);
         }
     })

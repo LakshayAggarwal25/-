@@ -91,6 +91,53 @@ function addFileUser() {
     return;
 }
 
+var inputByUserAlbum;
+function addAlbumUser() {
+    inputByUserAlbum = false;
+    let popup = document.querySelector(".pop-up-input-4");
+    let overlay = document.querySelector("#overlay-4");
+    let input = document.querySelector("#pop-up-input-content-4");
+    let inputEntered = document.querySelector("#pop-up-input-ok-4");
+    let closePop = document.querySelector("#pop-up-input-cancel-4");
+
+    inputEntered.addEventListener("click", getInput);
+    closePop.addEventListener("click", closePopup);
+    overlay.addEventListener("click", closePopup);
+
+
+    function openPopup() {
+        popup.classList.add("active");
+        overlay.classList.add("active");
+    }
+
+    function getInput() {
+        let userInput = input.value;
+        if (userInput) {
+            userInput = userInput.trim();
+            if (userInput) {
+                inputByUserAlbum = userInput;
+                input.value = "";
+                addAlbum();
+                closePopup();
+                return;
+            }
+        }
+        closePopup();
+        return;
+
+    }
+
+    function closePopup() {
+        popup.classList.remove("active");
+        overlay.classList.remove("active");
+        return;
+
+    }
+
+    openPopup();
+    return;
+}
+
 let folderMainTemplate = document.querySelector(".folders-template");
 let breadCrumbMainTemplate = document.querySelector(".breadcrumb-template");
 let breadCrumb = document.querySelector(".bread-crumb-container");
@@ -200,7 +247,7 @@ function renameFolder() {
     let currentFolderBox = this.parentNode.parentNode.parentNode.parentNode;
     let currentName = currentFolderBox.querySelector(".folder-name");
     let tempid = parseInt(currentFolderBox.getAttribute("id"));
-    if (newName == false) {
+    if (newName == false|| newName == null) {
         return;
     }
     if (newName.length > 15) {
@@ -368,7 +415,7 @@ function renameFile() {
     let currentFileBox = this.parentNode.parentNode.parentNode.parentNode;
     let currentName = currentFileBox.querySelector(".file-name");
     let tempid = parseInt(currentFileBox.getAttribute("id"));
-    if (newName == false) {
+    if (newName == false|| newName == null) {
         return;
     }
     if (newName.length > 15) {
@@ -412,46 +459,6 @@ function deleteFile() {
 }
 
 
-function addToHtml(arrToBeDisplay, parentId) {
-    resourcesContainer.innerHTML = "";
-    if(parentId==-2){
-        arrToBeDisplay.forEach(element => {
-            if (element.rType == "folder") {
-                addFolderToHtml(element.name, element.id, element.pid);
-            }
-            if (element.rType == "file") {
-                addFileToHtml(element.name, element.id, element.pid);
-            }
-        });
-    }
-    arrToBeDisplay.filter(r => r.pid == parentId).forEach(element => {
-        if (element.rType == "folder") {
-            addFolderToHtml(element.name, element.id, element.pid);
-        }
-        
-        if (element.rType == "file") {
-            addFileToHtml(element.name, element.id, element.pid);
-        }
-    });
-}
-
-function saveToLocalStorage() {
-    let resourcesString = JSON.stringify(resources);
-    localStorage.setItem("resources", resourcesString);
-}
-function loadFromLocalStorage() {
-    resourcesString = localStorage.getItem("resources");
-    if (resourcesString) {
-        resources = JSON.parse(resourcesString);
-        resources.forEach(r => {
-            if (r.id > id) {
-                id = r.id;
-            }
-        })
-        addToHtml(resources, -1);
-    }
-}
-loadFromLocalStorage();
 
 
 
@@ -492,3 +499,207 @@ function makeBreadCrumb(tempId){
         breadCrumb.appendChild(pathContainer);
     })
 }
+
+
+
+let albumMainTemplate = document.querySelector(".albums-template");
+let addAlbumBtn = document.querySelector("#add-album");
+
+addAlbumBtn.addEventListener("click",()=>{
+    if(breadCrumb.style.opacity==0){
+        alert("Can not create an album here!!!");
+        return;
+    }
+    addAlbumUser();
+})
+
+function addAlbum(){
+    if (inputByUserAlbum == false) {
+        return;
+    }
+    if (inputByUserAlbum.length > 10) {
+        alert("Album name cannot be more than 10 characters");
+        return;
+    }
+    let albumNameExists = resources.filter(r => r.pid == cfid).filter(r => r.rType == "album").some(f => f.name == inputByUserAlbum);
+    if (albumNameExists) {
+        alert("album name already exists");
+        return;
+    }
+    id++;
+
+    // Updating RAM
+    resources.push({
+        pid: cfid,
+        id: id,
+        name: inputByUserAlbum,
+        rType: "album",
+    });
+
+    //Updating View
+    addAlbumToHtml(inputByUserAlbum, id, cfid);
+
+    //Updating Storage
+    saveToLocalStorage();
+}
+
+function addAlbumToHtml(name,id,pid){
+    let albumTemplate = albumMainTemplate.content.querySelector(".album-box");
+    let albumBoxDiv = document.importNode(albumTemplate, true);
+
+    let menuBtn = albumBoxDiv.querySelector(".three-dots");
+    let menu = albumBoxDiv.querySelector(".mini-menu");
+    let fname = albumBoxDiv.querySelector(".album-name");
+    let viewBtn = albumBoxDiv.querySelector("[action='view']");
+    let renameBtn = albumBoxDiv.querySelector("[action='rename']");
+    let deleteBtn = albumBoxDiv.querySelector("[action='delete']");
+    let albumImg = albumBoxDiv.querySelector(".album-img");
+
+    fname.innerText = name;
+    albumBoxDiv.setAttribute("id", id);
+    albumBoxDiv.setAttribute("pid", pid);
+
+    let menuClosed = true;
+    function toggleMenuDisplay() {
+        if (menuClosed) {
+            menu.style.display = "flex";
+        } else {
+            menu.style.display = "none";
+        }
+        menuClosed = !menuClosed;
+    }
+    menuBtn.addEventListener("click", toggleMenuDisplay);
+    menuBtn.parentNode.addEventListener("mouseleave", function () {
+        menu.style.display = "none";
+        menuClosed = true;
+    })
+
+    viewBtn.addEventListener("click", viewAlbum);
+    albumImg.addEventListener("click", viewAlbumByImg);
+    renameBtn.addEventListener("click",renameAlbum);
+    deleteBtn.addEventListener("click", deleteAlbum);
+
+    resourcesContainer.appendChild(albumBoxDiv);
+}
+function viewAlbum(){
+    let albumbox = this.parentNode.parentNode.parentNode.parentNode;
+    let id = parseInt(albumbox.getAttribute("id"));
+    let album = resources.find(r=>r.id==id);
+
+    if(breadCrumb.style.opacity==0){
+        makeBreadCrumb(album.pid);
+        addToHtml(resources,album.pid);
+        return;
+    }
+    albumViewer(albumbox);
+}
+function viewAlbumByImg(){
+    let albumbox = this.parentNode.parentNode;
+    let id = parseInt(albumbox.getAttribute("id"));
+    let album = resources.find(r=>r.id==id);
+
+    if(breadCrumb.style.opacity==0){
+        makeBreadCrumb(album.pid);
+        addToHtml(resources,album.pid);
+        return;
+    }
+    albumViewer(albumbox);
+}
+function renameAlbum(){
+    let newName = prompt("Enter new name ");
+    let currentAlbumBox = this.parentNode.parentNode.parentNode.parentNode;
+    let currentName = currentAlbumBox.querySelector(".album-name");
+    let tempid = parseInt(currentAlbumBox.getAttribute("id"));
+    if (newName == false || newName == null) {
+        return;
+    }
+    if (newName.length > 15) {
+        alert("Album name cannot be more than 10 characters");
+        return;
+    }
+    let albumNameExists = resources.filter(r => r.pid == cfid).filter(r => r.rType == "album").some(f => f.name == newName);
+    if (albumNameExists) {
+        alert("Album name already exists");
+        return;
+    }
+
+    let albumInArray = resources.find(r=>r.id==tempid);
+    albumInArray.name = newName;
+    currentName.innerText = newName;
+
+    saveToLocalStorage();
+}
+function deleteAlbum(){
+    let album = this.parentNode.parentNode.parentNode.parentNode;
+    let albumIdToBeDelete = parseInt(album.getAttribute("id"));
+    let oldAlbum = album.querySelector(".album-name");
+    let oldAlbumName = oldAlbum.innerText;
+    let res = confirm("Are you sure you want to delete " + oldAlbumName);
+
+    if (res == false) {
+        return;
+    }
+    
+    let containsImages = images.some(f => f.pid == albumIdToBeDelete);
+    if (containsImages==true) {
+        alert("Can't delete, album contains images");
+        return;
+    }
+
+    let albumInArray = resources.findIndex(f => f.id == albumIdToBeDelete);
+    resources.splice(albumInArray, 1);
+    resourcesContainer.removeChild(album);
+    saveToLocalStorage();
+}
+
+
+
+
+
+
+function addToHtml(arrToBeDisplay, parentId) {
+    resourcesContainer.innerHTML = "";
+    if(parentId==-2){
+        arrToBeDisplay.forEach(element => {
+            if (element.rType == "folder") {
+                addFolderToHtml(element.name, element.id, element.pid);
+            }
+            if (element.rType == "file") {
+                addFileToHtml(element.name, element.id, element.pid);
+            }
+            if(element.rType == "album"){
+                addAlbumToHtml(element.name,element.id,element.pid);
+            }
+        });
+    }
+    arrToBeDisplay.filter(r => r.pid == parentId).forEach(element => {
+        if (element.rType == "folder") {
+            addFolderToHtml(element.name, element.id, element.pid);
+        }
+        
+        if (element.rType == "file") {
+            addFileToHtml(element.name, element.id, element.pid);
+        }
+        if(element.rType == "album"){
+            addAlbumToHtml(element.name,element.id,element.pid);
+        }
+    });
+}
+
+function saveToLocalStorage() {
+    let resourcesString = JSON.stringify(resources);
+    localStorage.setItem("resources", resourcesString);
+}
+function loadFromLocalStorage() {
+    resourcesString = localStorage.getItem("resources");
+    if (resourcesString) {
+        resources = JSON.parse(resourcesString);
+        resources.forEach(r => {
+            if (r.id > id) {
+                id = r.id;
+            }
+        })
+        addToHtml(resources, -1);
+    }
+}
+loadFromLocalStorage();
