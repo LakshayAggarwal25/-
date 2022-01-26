@@ -23,6 +23,7 @@ function openTextApp(file) {
     let fontFamBtn = textApp.querySelector("[purpose='font-family']");
     let fontSizeBtn = textApp.querySelector("[purpose='font-size']");
     let appColorBtn = textApp.querySelector("[ purpose='file-color']")
+    let downloadBtn = textApp.querySelector("[action='download']");
 
     let textarea = textApp.querySelector(".text-app-textarea");
 
@@ -122,6 +123,17 @@ function openTextApp(file) {
         textApp.style.backgroundColor = appColor;
     }
 
+
+    downloadBtn.addEventListener("click",()=>{
+        let fileString = file.content;
+        let encodedData = encodeURIComponent(fileString);
+        let a = document.createElement("a");
+        a.download = file.name+".txt";
+        a.href = "data:text/plain; charset=utf-8," + encodedData;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    })
 
     saveBtn.addEventListener("click", saveStyle)
     function saveStyle() {
