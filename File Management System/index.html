@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body{
+            font-family: 'Bree Serif', serif;
+            background-color: #202124;
+        }
+        *{
+            font-size: 20px;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="Styles/album.css">
+    <link rel="stylesheet" href="Styles/breadCrumb.css">
+    <link rel="stylesheet" href="Styles/buttons.css">
+    <link rel="stylesheet" href="Styles/folders.css">
+    <link rel="stylesheet" href="Styles/sidebar.css">
+    <link rel="stylesheet" href="Styles/sreachArea.css">
+    <link rel="stylesheet" href="Styles/textFileEditor.css">
+    <link rel="stylesheet" href="Styles/userInput.css">
+</head>
+<body>
+    <div class="pop-up-input">
+        <input type="text" placeholder="Enter name here" id="pop-up-input-content">
+        <div class="pop-up-btns">
+            <button id="pop-up-input-ok">Ok</button>
+            <button id="pop-up-input-cancel">Cancel</button>
+        </div>
+    </div>
+
+    <div class="pop-up-text-app">
+        <div class="text-app-titlebar">
+            <div class="text-app-title">Title here</div>
+            <div class="text-app-close-btn">&times;</div>
+        </div>
+        <hr>
+        <div class="text-app-menubar">
+            <span class="text-app-menu-item material-icons " action="bold">format_bold</span>
+            <span class="text-app-menu-item material-icons " action="underline">format_underline</span>
+            <span class="text-app-menu-item material-icons " action="save">save</span>
+            <span class="text-app-menu-item material-icons " action="italic">format_italic</span>
+            <input class="text-app-menu-item" type="color" purpose="bg-color" title="Background Color">
+            <input class="text-app-menu-item" type="color" purpose="fg-color" title="Text Color">
+            <select class="text-app-menu-item" purpose="font-family">
+                <option value="monospace">monospace</option>
+                <option value="serif">serif</option>
+                <option value="sans-serif">sans-serif</option>
+                <option value="cursive">cursive</option>
+            </select>
+            <select class="text-app-menu-item" purpose="font-size">
+                <option value="10pt">10</option>
+                <option value="12pt">12</option>
+                <option value="14pt">14</option>
+                <option value="16pt">16</option>
+                <option value="18pt">18</option>
+                <option value="20pt">20</option>
+                <option value="22pt">22</option>
+                <option value="24pt">24</option>
+                <option value="26pt">26</option>
+                <option value="28pt">28</option>
+            </select>
+            <input class="text-app-menu-item" type="color" purpose="file-color" title="File Color">
+            <span class="text-app-menu-item material-icons " action="download">file_download</span>
+        </div>
+        <hr>
+        <div class="text-app-textarea-container">
+            <textarea class="text-app-textarea"></textarea>
+        </div>
+    </div>
+
+    <div class="pop-up-album-app">
+        <div class="album-app-titlebar">
+            <div class="album-app-title">Title here</div>
+            <div class="album-app-close-btn">&times;</div>
+        </div>
+        <hr>
+        <div class="album-app-menubar">
+            <span class="album-app-menu-item material-icons" action="add-img">add_photo_alternate</span>
+            <span class="album-app-menu-item material-icons" action="nav-left">arrow_back_ios_new</span>
+            <span class="album-app-menu-item material-icons" action="play">play_arrow</span>
+            <span class="album-app-menu-item material-icons" action="nav-right">arrow_forward_ios</span>
+            <span class="album-app-menu-item material-icons" action="delete">delete</span>
+        </div>
+        <hr>
+        <div class="album-app-image-container">
+            <div class="album-app-navigate-left-container" btn="left"><span class="nav-arrow material-icons">arrow_back_ios_new</span></div>
+            <div class="album-app-image-area">
+                <img src="" alt="" id="album-main-img">
+            </div>
+            <div class="album-app-navigate-right-container" btn="right"><span class="nav-arrow material-icons">arrow_forward_ios</span></div>
+        </div>
+        <div class="album-app-images">
+            <template class="image-thumbnails">
+                <div class="album-app-thumbnail">
+                    <img src="">
+                </div>
+            </template>
+        </div>
+    </div>
+
+    <div id="overlay" class=""></div>
+
+    <div class="sidebar-btn">&equiv;</div>
+    <div class="sidebar-container">
+        <div class="user-details-container">
+            <div class="user-name">Lakshay Aggarwal</div>
+        </div>
+        <hr>
+        <div class="resource-type-list">
+            <div class="resource-list-item root-list">Root</div>
+            <div class="resource-list-item folder-list"><span class="material-icons">folder</span>Folders</div>
+            <div class="resource-list-item file-list"><span class="material-icons">description</span>Text Files</div>
+            <div class="resource-list-item album-list"><span class="material-icons">photo_library</span>Albums</div>
+        </div>
+    </div>
+
+    <div class="search-bar-container">
+        <div class="search-bar">
+            <input type="text" placeholder="Search here" id="search-input">
+            <span class="material-icons" id="search">search</span>
+        </div>
+    </div>
+    <hr>
+
+    <div class="buttons-container">
+        <button class = "main-btns" id="add-folder">Add Folder</button>
+        <button class = "main-btns" id="add-file">Add File</button>
+        <button class = "main-btns" id="add-album">Add Album</button>
+    </div>
+
+    <div class="bread-crumb-container">
+        <a class="path">Root</a>
+    </div>
+
+
+    <div class="resources-container">   
+    </div>
+    
+    <template class="resources-template">
+        <div class="resource-box">
+            <div class="icon-menu">
+                <img src="" class="file-img" style="height: 100px; width: 100px;">
+                <div class="mini-menu-container">
+                    <button class="three-dots">&#10247</button>
+                    <ul class="mini-menu">
+                        <li action="view">View</li>
+                        <li action="delete">Delete</li>
+                        <li action="rename">Rename</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="resource-name" action="set-name"></div>
+        </div>
+    </template>
+
+
+    <template class="breadcrumb-template">
+        <div class="img-path">
+            <img src="./right-arrow-icon-3.svg" style="height: 20px;">
+            <a class="path"></a>
+        </div>
+    </template>
+    <script src="./sidebar.js"></script>
+    <script src="./resourcesSys.js"></script>
+
+</body>
+</html>

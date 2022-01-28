@@ -1,0 +1,92 @@
+.pop-up-text-app {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 10;
+    transition: 200ms ease-in-out;
+    height: 70%;
+    width: 80%;
+    background-color: lightcoral;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.pop-up-text-app.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.text-app-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+    
+}
+
+.text-app-title {
+    
+    font-size: 2rem;
+}
+
+.text-app-close-btn {
+    
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.text-app-menubar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1%;
+    gap: 2rem;
+    flex-wrap: wrap;
+    
+}
+
+.text-app-menu-item {
+    height: 2rem;
+    
+    cursor: pointer;
+}
+
+.text-app-menu-item.material-icons {
+    font-size: 2rem;
+}
+
+.text-app-menu-item.material-icons.active {
+    box-shadow: 0px 4px 4px 4px #030307;
+    background-color: white;
+}
+
+select.text-app-menu-item,input.text-app-menu-item{
+    background-color: black;
+    color: white;
+}
+
+.text-app-textarea-container {
+    display: flex;
+    
+    height: 100%;
+    padding: .3rem;
+    overflow: hidden;
+}
+
+.text-app-textarea {
+    height: 100%;
+    width: 100%;
+    border: none;
+    resize: none;
+    background-color: aliceblue;
+    color: black;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.text-app-textarea:focus {
+    border: none;
+    outline: none;
+}

@@ -1,0 +1,81 @@
+.mini-menu-container {
+    padding-left: .6rem;
+    margin: 0;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-start;
+    position: relative;
+    
+
+}
+.three-dots {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: transparent;
+}
+.three-dots:hover {
+    background-color: whitesmoke;
+    border-radius: 50%;
+    color: black;
+}
+.mini-menu {
+    position: absolute;
+    top: 1.1rem;
+    list-style: none;
+    padding-top: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    display: flex;
+    border-radius: 6px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    background-color: white;
+    display: none;
+}
+.mini-menu li{
+    color:#0b0c10;
+    font-size: .8rem;
+}
+.icon-menu {
+    display: flex;
+    align-items: flex-start;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+}
+.folder-box, .file-box,.album-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    gap: 6px;
+}
+.folder-name,.file-name,.album-name {
+    text-align: center;
+    color: whitesmoke;
+
+}
+.folder-img, .file-img, .album-img{
+    cursor: pointer;
+}
+.resources-container {
+    margin-left: 20%;
+    margin-right: 12%;
+    margin-top: 2%;
+    height: fit-content;
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
