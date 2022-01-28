@@ -5,8 +5,8 @@
     transform: translate(-50%, -50%) scale(0);
     z-index: 10;
     transition: 200ms ease-in-out;
-    height: 70%;
-    width: 80%;
+    height: 95%;
+    width: 95%;
     background-color: lightcoral;
     border-radius: 1rem;
     overflow: hidden;

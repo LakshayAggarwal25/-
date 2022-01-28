@@ -18,6 +18,16 @@
             font-size: 20px;
             margin: 0;
             padding: 0;
+        } 
+        @media screen and (max-width:1440px){
+            *{
+                font-size : 18px;
+            }
+        }
+        @media screen and (max-width:1024px){
+            *{
+                font-size : 14px;
+            }
         }
     </style>
     <link rel="stylesheet" href="Styles/album.css">
@@ -117,7 +127,7 @@
         </div>
         <hr>
         <div class="resource-type-list">
-            <div class="resource-list-item root-list">Root</div>
+            <div class="resource-list-item root-list">Home</div>
             <div class="resource-list-item folder-list"><span class="material-icons">folder</span>Folders</div>
             <div class="resource-list-item file-list"><span class="material-icons">description</span>Text Files</div>
             <div class="resource-list-item album-list"><span class="material-icons">photo_library</span>Albums</div>
@@ -139,7 +149,7 @@
     </div>
 
     <div class="bread-crumb-container">
-        <a class="path">Root</a>
+        <a class="path">Home</a>
     </div>
 
 
@@ -149,7 +159,7 @@
     <template class="resources-template">
         <div class="resource-box">
             <div class="icon-menu">
-                <img src="" class="file-img" style="height: 100px; width: 100px;">
+                <img src="" class="r-img" action="set-img-src" style="height: 100px; width: 100px;">
                 <div class="mini-menu-container">
                     <button class="three-dots">&#10247</button>
                     <ul class="mini-menu">
@@ -166,12 +176,15 @@
 
     <template class="breadcrumb-template">
         <div class="img-path">
-            <img src="./right-arrow-icon-3.svg" style="height: 20px;">
+            <img src="Images/right-arrow-icon-3.svg" style="height: 20px;">
             <a class="path"></a>
         </div>
     </template>
-    <script src="./sidebar.js"></script>
     <script src="./resourcesSys.js"></script>
+    <script src="./textApp.js"></script>
+    <script src="./albumApp.js"></script>
+    <script src="./sidebar.js"></script>
+    <script src="./searchbar.js"></script>
 
 </body>
 </html>
