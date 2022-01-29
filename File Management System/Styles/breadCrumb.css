@@ -17,7 +17,6 @@
 }
 .bread-crumb-container img{
     filter: invert(100%);
-    
 }
 .img-path{
     display: flex;
@@ -27,4 +26,7 @@
 }
 a.path{
     cursor: pointer;
+}
+.img-path:last-of-type > a{
+    color: rgb(0, 0, 255);
 }
