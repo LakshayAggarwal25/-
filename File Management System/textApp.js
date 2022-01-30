@@ -9,6 +9,15 @@ function openTextApp(file) {
     }
     function closePopup() {
         overlay.removeEventListener("click", closePopup);
+        boldBtn.removeEventListener("click", makeBold);
+        italicBtn.removeEventListener("click", makeItalic);
+        underlineBtn.removeEventListener("click", makeUnderLine);
+        bgCol.removeEventListener("change", changeBG);
+        fgCol.removeEventListener("change", changeFG);
+        fontFamBtn.removeEventListener("change", changeFont);
+        fontSizeBtn.removeEventListener("change", changeFontSize);
+        appColorBtn.removeEventListener("change", changeAppColor);
+        saveBtn.removeEventListener("click", saveStyle);
         overlay.classList.remove("active");
         textApp.classList.remove("active");
     }
@@ -43,7 +52,7 @@ function openTextApp(file) {
     let fontFamily = file.styleFontFam;
     let fontSize = file.styleFontSize;
     let appColor = file.containerColor;
-    textarea.innerText = file.content;
+    textarea.value = file.content;
 
     bgCol.value = file.styleBgColor;
     fgColor.value = file.styleFgColor;
@@ -136,7 +145,7 @@ function openTextApp(file) {
         document.body.removeChild(a);
     })
 
-    saveBtn.addEventListener("click", saveStyle)
+    saveBtn.addEventListener("click", saveStyle);
     function saveStyle() {
         let removeOldFile = resources.findIndex(r => r.id == file.id);
         resources.splice(removeOldFile, 1);
