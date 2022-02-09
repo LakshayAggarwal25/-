@@ -6,7 +6,6 @@ let axios = require("axios");
 let jsdom = require("jsdom");
 let excel = require("excel4node");
 let https = require('https');
-let path = require("path")
 
 let args = minimist(process.argv);
 // console.log(args.name);
