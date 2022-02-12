@@ -1,9 +1,13 @@
 import './App.css';
-
+import Navbar from './components/navbar';
+import Banner from './components/banner';
+import Trending from './components/trending';
 function App() {
   return (
     <>
-      <h1>Hello world!!🚀🚀</h1>
+      <Navbar></Navbar>
+      <Banner></Banner>
+      <Trending></Trending>
     </>
   );
 }
