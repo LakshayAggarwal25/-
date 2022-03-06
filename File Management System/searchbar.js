@@ -1,6 +1,12 @@
 let searchByUser = document.querySelector("#search-input");
 let searchBtn = document.querySelector("#search");
 
+searchByUser.addEventListener("keyup",(e)=>{
+    if(e.keyCode===13){
+        searchBtn.click();
+    }
+})
+
 searchBtn.addEventListener("click",()=>{
     searchInput = searchByUser.value;
     let temp = validate(searchInput);

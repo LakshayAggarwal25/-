@@ -25,7 +25,7 @@ addFolderBtn.addEventListener("click", () => {
     resourceTypeToBeAdded = 1;
     typeOfInput = 1;
     if (breadCrumb.style.opacity == 0) {
-        alert("Can not create a folder here!!!");
+        alert("Navigate to home (from sidebar). Can not create a folder here!!!");
         return;
     }
     takeUserInput();
@@ -34,7 +34,7 @@ addFileBtn.addEventListener("click", () => {
     resourceTypeToBeAdded = 2;
     typeOfInput = 1;
     if (breadCrumb.style.opacity == 0) {
-        alert("Can not create a file here!!!");
+        alert("Navigate to home (from sidebar). Can not create a file here!!!");
         return;
     }
     takeUserInput();
@@ -43,7 +43,7 @@ addAlbumBtn.addEventListener("click", () => {
     resourceTypeToBeAdded = 3;
     typeOfInput = 1;
     if (breadCrumb.style.opacity == 0) {
-        alert("Can not create an album here!!!");
+        alert("Navigate to home (from sidebar). Can not create an album here!!!");
         return;
     }
     takeUserInput();
@@ -91,7 +91,7 @@ function addResource() {
             styleFontFam: "serif",
             styleFontSize: "14pt",
             content: "This is new file",
-            containerColor: "#f08080"
+            containerColor: "#122434"
         });
     } else if (currRType == "album") {
         resources.push({
@@ -218,7 +218,7 @@ function deleteRes(){
     let rType = res.getAttribute("rType");
     let resBox = res.querySelector(".resource-name");
     let resName = resBox.innerText;
-    let result = confirm("Are you sure you want to delete " + resName);
+    let result = confirm(`Are you sure you want to delete ${resName} permanently ?`);
 
     if (result == false) {
         return;
@@ -266,6 +266,16 @@ function takeUserInput(resBox) {
     let closePop = document.querySelector("#pop-up-input-cancel");
 
     inputEntered.addEventListener("click", getInput);
+    popup.addEventListener("keyup", (e)=>{
+        if(e.keyCode===13){ 
+            e.preventDefault();
+            inputEntered.click();
+        }
+        if(e.keyCode ===27){
+            e.preventDefault();
+            closePop.click();
+        }
+    });
     closePop.addEventListener("click", closePopup);
     overlay.addEventListener("click", closePopup);
 

@@ -23,6 +23,7 @@
     background-color: #130f40;
     color: lightcoral;
     border: 3px solid beige;
+    transform: scale(1.1);
 }
 .main-btns:active{
     box-shadow: 0px 0px 4px 4px rgba(255,255,255,0.75);

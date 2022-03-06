@@ -7,12 +7,14 @@
     transition: 200ms ease-in-out;
     height: 95%;
     width: 95%;
-    background-image: linear-gradient(#dfd6ca 0%, #38332c 70%);
+    background-color: #0cbaba;
+    background-image: linear-gradient(300deg, #000000 0%, #130f40 74%);
     border-radius: 1rem;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     user-select: none;
+    color:whitesmoke;
 }
 
 .pop-up-album-app.active {
@@ -53,6 +55,7 @@
 .album-app-menu-item {
     height: 1.5rem;
     cursor: pointer;
+    border-radius: 8px;
 }
 
 .album-app-menu-item.material-icons {
@@ -60,8 +63,8 @@
 }
 
 .album-app-menu-item.material-icons:hover {
-    box-shadow: 0px 4px 4px 4px #030307;
-    background-color: white;
+    box-shadow: 0px 0px 4px 4px #ffffff;
+    background-color: black;
 }
 
 .album-app-image-container {
@@ -91,7 +94,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    background-image: linear-gradient(#dfd6caa6 0%, #38332ca6 70%);
+    background-image: linear-gradient(300deg, #000000 0%, #130f40 74%);
     background-color: #111111ab;
     cursor: pointer;
 }
@@ -121,7 +124,7 @@
 }
 
 .album-app-thumbnail img {
-    border: .4rem solid white;
+    border: .4rem solid rgb(136, 136, 136);
     max-height: 100%;
     object-fit: contain;
     cursor: pointer;
@@ -129,6 +132,6 @@
     transition: all 100ms ease-out;
 }
 .album-app-thumbnail img.active {
-    border: .4rem solid black;
+    border: .4rem solid white;
     transform: scale(1.12);
 }

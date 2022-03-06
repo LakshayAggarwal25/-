@@ -7,10 +7,11 @@
     transition: 200ms ease-in-out;
     height: 95%;
     width: 95%;
-    background-color: lightcoral;
+    background-color: blue;
     border-radius: 1rem;
     overflow: hidden;
     display: flex;
+    color:whitesmoke;
     flex-direction: column;
 }
 
@@ -27,12 +28,10 @@
 }
 
 .text-app-title {
-    
     font-size: 2rem;
 }
 
 .text-app-close-btn {
-    
     cursor: pointer;
     font-size: 2rem;
 }
@@ -46,11 +45,27 @@
     flex-wrap: wrap;
     
 }
+.warning-text{
+    position: absolute;
+    right:2rem;
+    font-size: 1rem;
+    color: #ff0000;
+}
+
+@media screen and (max-width:1024px){
+    .warning-text{
+        right: 0;
+        font-size: .75rem;
+    }    
+}
 
 .text-app-menu-item {
     height: 2rem;
-    
     cursor: pointer;
+    border-radius: 8px;
+}
+.text-app-menu-item:hover {
+    box-shadow: 0px 0px 2px 2px #ffffff;
 }
 
 .text-app-menu-item.material-icons {
@@ -58,18 +73,17 @@
 }
 
 .text-app-menu-item.material-icons.active {
-    box-shadow: 0px 4px 4px 4px #030307;
-    background-color: white;
+    box-shadow: 0px 0px 4px 2px #ffffff;
+    background-color: rgb(0, 0, 0);
 }
 
-select.text-app-menu-item,input.text-app-menu-item{
-    background-color: black;
+input.text-app-menu-item{
+    background-color: rgb(72, 72, 72);
     color: white;
 }
 
 .text-app-textarea-container {
-    display: flex;
-    
+    display: flex;    
     height: 100%;
     padding: .3rem;
     overflow: hidden;

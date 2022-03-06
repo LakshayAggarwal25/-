@@ -48,7 +48,7 @@ deleteBtn.addEventListener("click",()=>{
     if(activeImgElement==false){
         return;
     }
-    let res = confirm("Do you want to delete this");
+    let res = confirm("Are you sure you want to delete this permanently ?");
     if(res == false){
         return;
     }
