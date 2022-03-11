@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="Styles/sreachArea.css">
     <link rel="stylesheet" href="Styles/textFileEditor.css">
     <link rel="stylesheet" href="Styles/userInput.css">
+    <link rel="stylesheet" href="Styles/contextMenu.css">
 </head>
 <body>
     <div class="pop-up-input">
@@ -81,7 +82,7 @@
             </select>
             <input class="text-app-menu-item" type="color" purpose="file-color" title="File Color">
             <span class="text-app-menu-item material-icons " action="download">file_download</span>
-            <span class="warning-text">Unsaved data will be lost. Please save before closing.</>        
+            <span class="warning-text">Unsaved data will be lost. Please save before closing.</li>        
         </div>
         <hr>
         <div class="text-app-textarea-container">
@@ -160,6 +161,12 @@
     <div class="resources-container">   
     </div>
     
+    <div id="main-context-menu">
+        <div class="item-c-mm">Add new Folder</div>
+        <div class="item-c-mm">Add new File</div>
+        <div class="item-c-mm">Add new Album</div>
+    </div>
+
     <template class="resources-template">
         <div class="resource-box">
             <div class="icon-menu">

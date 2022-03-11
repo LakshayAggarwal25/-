@@ -1,0 +1,22 @@
+#main-context-menu{
+    position: fixed;
+    z-index: 100000;
+    width: 175px;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    top: 0;
+    border: 1px solid black;
+    transform: scale(0);
+    transform-origin: top left;
+    transition: all ease-in-out 200ms;
+}
+#main-context-menu.active{
+    transform: scale(1);
+}
+#main-context-menu .item-c-mm{
+    padding: 4px;
+}
+#main-context-menu .item-c-mm:hover{
+    background-color: #130f40;
+    color: lightcoral;
+}

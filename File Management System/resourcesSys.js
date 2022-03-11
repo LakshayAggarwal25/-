@@ -153,6 +153,11 @@ function addResourceToView(name, id, pid, rType) {
     viewBtn.addEventListener("click",viewRes.bind(viewBtn,4));
     deleteBtn.addEventListener("click",deleteRes.bind(deleteBtn));
 
+    img.addEventListener('contextmenu',function(e){
+        e.preventDefault();
+        console.log("Image Clicked");
+    },false);
+
     resourcesContainer.appendChild(resourceBoxDiv);
 }
 
@@ -381,3 +386,17 @@ function navigateBreadCrumb() {
         this.parentNode.removeChild(this.nextSibling);
     }
 }
+
+
+resourcesContainer.addEventListener('contextmenu',function(e){
+    e.preventDefault();
+    if(e.target.classList[0]==="r-img") return;
+
+    const mainContext = document.querySelector("#main-context-menu");
+    mainContext.style.top = e.pageY+"px";
+    mainContext.style.left = (e.pageX)+"px";
+    mainContext.classList.add("active");
+});
+window.addEventListener("click",()=>{
+    document.querySelector("#main-context-menu").classList.remove("active");
+})
