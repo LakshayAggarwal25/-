@@ -14,6 +14,8 @@
     padding-left: .5rem;
     padding-right: .5rem;
     gap:.25rem;
+    background-color: black;
+    z-index: 1000;
 }
 .bread-crumb-container img{
     filter: invert(100%);
@@ -28,5 +30,5 @@ a.path{
     cursor: pointer;
 }
 .img-path:last-of-type > a{
-    color: rgb(0, 0, 255);
+    color: rgb(252, 59, 85);
 }

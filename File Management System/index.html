@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>File Management System</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
     </style>
@@ -13,6 +13,7 @@
         body{
             font-family: 'Bree Serif', serif;
             background-color: #202124;
+            min-height: 100vh;
         }
         *{
             font-size: 20px;
@@ -162,9 +163,13 @@
     </div>
     
     <div id="main-context-menu">
-        <div class="item-c-mm">Add new Folder</div>
-        <div class="item-c-mm">Add new File</div>
-        <div class="item-c-mm">Add new Album</div>
+        <div id="cm-add-folder" class="item-c-mm">Add new Folder</div>
+        <div id="cm-add-file" class="item-c-mm">Add new File</div>
+        <div id="cm-add-album" class="item-c-mm">Add new Album</div>
+        <input id="hidden-upload-btn" class="hidden-input" type="file">
+        <hr>
+        <div id="cm-change-bg" class="item-c-mm">Change background</div> 
+        <div id="cm-reset-bg" class="item-c-mm">Reset Background</div>
     </div>
 
     <template class="resources-template">

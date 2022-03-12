@@ -14,9 +14,9 @@
     border: 3px solid whitesmoke;
     padding: .5rem;
     cursor: pointer;
-    color: #66fcf1;
+    color: azure;
     border-radius: 1rem;
-    background-color: transparent;
+    background-color: black;
     transition: all 100ms ease-in-out;
 }
 .main-btns:hover{

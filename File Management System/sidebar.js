@@ -9,8 +9,14 @@
     function toggleSideBar() {
         if (isSideBarOpen) {
             sidebarContainer.classList.toggle("active");
+            sidebarBtn.innerHTML="&#10005;"
+            sidebarBtn.style.fontSize = "2rem";
+            sidebarBtn.style.top = "3rem";
         } else {
             sidebarContainer.classList.toggle("active");
+            sidebarBtn.innerHTML="&equiv;"
+            sidebarBtn.style.fontSize = "3rem";
+            sidebarBtn.style.top = "2rem";
         }
         isSideBarOpen = !isSideBarOpen;
     }

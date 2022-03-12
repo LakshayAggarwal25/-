@@ -1,13 +1,11 @@
 .sidebar-btn{
-    top : 3rem;
+    top : 2rem;
     left: 2rem;
     font-size: 3rem;
     position: fixed;
     z-index: 2;
     cursor: pointer;
     color: lightcoral;
-    
-
 }
 .sidebar-container{
     height: 100%;

@@ -149,14 +149,19 @@ function addResourceToView(name, id, pid, rType) {
     let deleteBtn = resourceBoxDiv.querySelector("[action='delete']");
 
     renameBtn.addEventListener("click", renameRes);
-    img.addEventListener("click",viewRes.bind(img,2));
-    viewBtn.addEventListener("click",viewRes.bind(viewBtn,4));
-    deleteBtn.addEventListener("click",deleteRes.bind(deleteBtn));
+    img.addEventListener("click", viewRes.bind(img, 2));
+    viewBtn.addEventListener("click", viewRes.bind(viewBtn, 4));
+    deleteBtn.addEventListener("click", deleteRes.bind(deleteBtn));
 
-    img.addEventListener('contextmenu',function(e){
+    img.addEventListener('contextmenu', function (e) {
         e.preventDefault();
-        console.log("Image Clicked");
-    },false);
+        document.querySelector("#main-context-menu").classList.remove("active");
+        menuBtn.click();
+    });
+    resourceBoxDiv.addEventListener("mouseleave", function () {
+        menu.style.display = "none";
+        menuClosed = true;
+    })
 
     resourcesContainer.appendChild(resourceBoxDiv);
 }
@@ -165,7 +170,7 @@ function renameRes() {
     typeOfInput = 2;
     takeUserInput(this.parentNode.parentNode.parentNode.parentNode);
 }
-function renameResHelper(resBox){
+function renameResHelper(resBox) {
     if (userInput == false || userInput == null) {
         return;
     }
@@ -185,39 +190,39 @@ function renameResHelper(resBox){
     saveToLocalStorage();
 }
 
-function viewRes(x){
+function viewRes(x) {
     let resBox;
-    if(x==2){
+    if (x == 2) {
         resBox = this.parentNode.parentNode;
-    }else if(x==4){
+    } else if (x == 4) {
         resBox = this.parentNode.parentNode.parentNode.parentNode;
     }
 
     let id = parseInt(resBox.getAttribute("id"));
     let pid = parseInt(resBox.getAttribute("pid"));
     let rType = resBox.getAttribute("rType");
-    if(breadCrumb.style.opacity==0){
+    if (breadCrumb.style.opacity == 0) {
         makeBreadCrumb(pid);
-        addWithArray(resources,pid);
+        addWithArray(resources, pid);
         return;
     }
-    else if(rType == "folder"){
+    else if (rType == "folder") {
         cfid = id;
         let temp = resources.filter(r => r.pid == id);
         addWithArray(temp, cfid);
         makeBreadCrumb(cfid);
     }
-    else if(rType == "file"){
+    else if (rType == "file") {
         let file = resources.find(r => r.id == id);
         openTextApp(file);
     }
-    else if(rType == "album"){
+    else if (rType == "album") {
         albumViewer(resBox);
     }
-    
+
 }
 
-function deleteRes(){
+function deleteRes() {
     let res = this.parentNode.parentNode.parentNode.parentNode;
     let idToBeDelete = parseInt(res.getAttribute("id"));
     let rType = res.getAttribute("rType");
@@ -228,37 +233,37 @@ function deleteRes(){
     if (result == false) {
         return;
     }
-    
-    if(rType == "album"){
+
+    if (rType == "album") {
         let containsImages = images.some(f => f.pid == idToBeDelete);
-        if (containsImages==true) {
+        if (containsImages == true) {
             alert("Can't delete, contains images");
             return;
         }
     }
 
     let containsSomething = resources.some(f => f.pid == idToBeDelete);
-    if (containsSomething==true) {
+    if (containsSomething == true) {
         alert("Can't delete, contains other document");
         return;
     }
-    
+
     let indexInArray = resources.findIndex(f => f.id == idToBeDelete);
     resources.splice(indexInArray, 1);
     resourcesContainer.removeChild(res);
     saveToLocalStorage();
 }
 
-function addWithArray(arr,pid){
+function addWithArray(arr, pid) {
     resourcesContainer.innerHTML = "";
-    if(pid==-2){
+    if (pid == -2) {
         arr.forEach(r => {
-            addResourceToView(r.name,r.id,r.pid,r.rType);
+            addResourceToView(r.name, r.id, r.pid, r.rType);
         });
         return;
     }
     arr.filter(r => r.pid == pid).forEach(r => {
-        addResourceToView(r.name,r.id,r.pid,r.rType);
+        addResourceToView(r.name, r.id, r.pid, r.rType);
     });
 }
 
@@ -271,12 +276,12 @@ function takeUserInput(resBox) {
     let closePop = document.querySelector("#pop-up-input-cancel");
 
     inputEntered.addEventListener("click", getInput);
-    popup.addEventListener("keyup", (e)=>{
-        if(e.keyCode===13){ 
+    popup.addEventListener("keyup", (e) => {
+        if (e.keyCode === 13) {
             e.preventDefault();
             inputEntered.click();
         }
-        if(e.keyCode ===27){
+        if (e.keyCode === 27) {
             e.preventDefault();
             closePop.click();
         }
@@ -344,30 +349,30 @@ loadFromLocalStorage();
 
 
 let tempArr = []
-function getParents(tid){
-    if(tid == -1){
+function getParents(tid) {
+    if (tid == -1) {
         return;
-    }else{
-        let ele = resources.find(r => r.id==tid);
+    } else {
+        let ele = resources.find(r => r.id == tid);
         parId = ele.pid;
         eleName = ele.name;
         tempArr.push({
-            name : eleName,
-            id : tid
+            name: eleName,
+            id: tid
         })
         getParents(parId);
     }
 }
-function makeBreadCrumb(tempId){
+function makeBreadCrumb(tempId) {
     tempArr = [];
     getParents(tempId);
     breadCrumb.style.opacity = "1";
     breadCrumb.style['pointer-events'] = 'all';
-    breadCrumb.innerHTML ="";
+    breadCrumb.innerHTML = "";
     let temp = `<a class="path" id="-1">Home</a>`
     breadCrumb.innerHTML = temp;
     let tempRoot = breadCrumb.querySelector("a");
-    tempRoot.addEventListener("click",navigateBreadCrumb);
+    tempRoot.addEventListener("click", navigateBreadCrumb);
     tempArr = tempArr.reverse();
     breadCrumbTemplate = breadCrumbMainTemplate.content.querySelector(".img-path");
     tempArr.forEach(e => {
@@ -381,22 +386,89 @@ function makeBreadCrumb(tempId){
 }
 function navigateBreadCrumb() {
     cfid = parseInt(this.getAttribute("id"));
-    addWithArray(resources,cfid);
+    addWithArray(resources, cfid);
     while (this.nextSibling) {
         this.parentNode.removeChild(this.nextSibling);
     }
 }
 
 
-resourcesContainer.addEventListener('contextmenu',function(e){
-    e.preventDefault();
-    if(e.target.classList[0]==="r-img") return;
+const contextAddFolder = document.querySelector("#cm-add-folder");
+const contextAddFile = document.querySelector("#cm-add-file");
+const contextAddAlbum = document.querySelector("#cm-add-album");
+const contextChangeBg = document.querySelector("#cm-change-bg");
+const changeBgBtn = document.querySelector("#hidden-upload-btn");
+const resetBg = document.querySelector("#cm-reset-bg");
 
+contextAddFolder.addEventListener("click", () => { addFolderBtn.click() });
+contextAddFile.addEventListener("click", () => { addFileBtn.click() });
+contextAddAlbum.addEventListener("click", () => { addAlbumBtn.click() });
+contextChangeBg.addEventListener("click", () => { changeBgBtn.click() });
+changeBgBtn.addEventListener("change", (e) => {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+        let uploadedImg = reader.result;
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundImage = `url(${uploadedImg})`;
+        document.querySelector(".search-bar-container").style.backgroundImage = "none";
+        document.querySelector(".search-bar-container").style.backgroundColor = "rgba(19,19,19,.507)";
+        let bgImgObj = { imgSrc: uploadedImg };
+        localStorage.setItem("bgUserSrc", JSON.stringify(bgImgObj));
+    })
+    if(!e.target.files[0].name.split(".").includes("jpg"||"jpeg"||"png")) return;
+    reader.readAsDataURL(e.target.files[0]);
+})
+resetBg.addEventListener("click", () => {
+    document.body.style.backgroundImage = `none`;
+    document.body.style.backgroundColor = "#202124";
+    document.querySelector(".search-bar-container").style.backgroundImage = "linear-gradient(90deg, black 0%, #202124 100%)";
+    if (localStorage.getItem("bgUserSrc") !== null) {
+        localStorage.removeItem("bgUserSrc");
+    }
+})
+
+
+function loadBgFromLocalStorage() {
+    let bgUserSrc = localStorage.getItem("bgUserSrc");
+    if (bgUserSrc) {
+        let bgImg = JSON.parse(bgUserSrc);
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundImage = `url(${bgImg.imgSrc})`;
+        document.querySelector(".search-bar-container").style.backgroundImage = "none";
+        document.querySelector(".search-bar-container").style.backgroundColor = "rgba(19,19,19,.507)";
+        breadCrumb.style.backgroundColor = "black";
+    }
+}
+loadBgFromLocalStorage();
+
+
+document.body.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    if (e.target.classList[0] === "r-img") return;
+    if (e.target.classList[0] === "main-btns") return;
+    if (e.target.classList[0] === "sidebar-btn") return;
+    for (let i = 0; i < e.composedPath().length; i++) {
+        if (e.composedPath()[i].classList?.length > 0) {
+            const arr = Array.from(e.composedPath()[i].classList);
+            if (arr.includes("search-bar-container")||arr.includes("sidebar-container")) {
+                return;
+            }
+        }
+    }
+    const overlay = document.querySelector("#overlay");
+    if(overlay.classList.contains("active")) return;
+
+    
     const mainContext = document.querySelector("#main-context-menu");
-    mainContext.style.top = e.pageY+"px";
-    mainContext.style.left = (e.pageX)+"px";
+    mainContext.style.top = e.pageY + "px";
+    mainContext.style.left = (e.pageX) + "px";
     mainContext.classList.add("active");
 });
-window.addEventListener("click",()=>{
+window.addEventListener("click", () => {
     document.querySelector("#main-context-menu").classList.remove("active");
 })
+
+
+
